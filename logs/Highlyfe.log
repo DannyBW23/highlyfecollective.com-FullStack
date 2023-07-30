@@ -65,3 +65,5 @@ jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was loo
 2023-07-29 23:23:45,091 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
 2023-07-30 11:30:51,333 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
 2023-07-30 13:03:48,574 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 14:07:56,015 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 14:08:26,141 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
