@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <style>
+        body {
+            background-color: rgba(17, 17, 184, 0.748);
+        }  
+        h1 { color: white;
+                }
+    </style>
+    <h1>Welcome Back to Highlyfe, {{ current_user.username }}!</h1>
+{% endblock %}
+
