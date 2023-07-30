@@ -1,6 +1,5 @@
 from app import create_app, db
 from app.models import User, Post
-#test
 app = create_app()
 
 @app.shell_context_processor
