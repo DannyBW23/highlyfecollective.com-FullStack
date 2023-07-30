@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <style>
+        body {
+            background-color: rgba(17, 17, 184, 0.748);
+            color: white;
+        }
+    </style>
+    <h1>Welcome Back to Studio G, {{ current_user.username }}!</h1>
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/highlyfecollective', text: 'Book Studio Time', color: '#0069ff', textColor: '#ffffff', branding: false }); }</script>
+<!-- Calendly badge widget end -->
+    <div>
+{% endblock %}
+
