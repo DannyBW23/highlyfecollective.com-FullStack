@@ -24,21 +24,14 @@
     </style>
     <h1>Edit Profile</h1>
     {% if name_to_update.profile_pic %}
-        {% if name_to_update.profile_pic.lower().endswith('.heic') or name_to_update.profile_pic.lower().endswith('.heif') %}
-            <div class=" profile-picture">
-            {% set jpeg_filename = name_to_update.profile_pic.replace('.heic', '.jpg').replace('.heif', '.jpg') %}
-            <img src="{{ url_for('static', filename='images/' + jpeg_filename) }}" width="128">
-            </div>
+            <div class="profile-picture">
+                 <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.profile_pic }}" width="128">
+              </div>
         {% else %}
-            <div class=" profile-picture"> 
-            <img src="{{ url_for('static', filename='images/' + current_user.profile_pic) }}" width="128">
-            </div>
+            <div class="profile-picture">
+                <img src="{{ user.avatar(128) }}"alt="Avatar" width="225" height="225">
+             </div>
         {% endif %}
-    {% else %}
-        <div class=" profile-picture">
-        <img src="{{ current_user.avatar(128) }}" width="128">
-        </div>
-    {% endif %}
 
 
     <div class="row">

@@ -42,7 +42,7 @@
             <a href="{{ url_for('main.user', username=followed_user.username) }}"style="font-size: 28px;color:white; display: block">{{ followed_user.username }}</a>
             {% if followed_user.profile_pic %}
         <div class="profile-picture">
-            <img src="{{ url_for('static', filename='images/' + followed_user.profile_pic) }}" width="32" height="32">
+            <img src="https://profilepic23.s3.amazonaws.com/{{ followed_user.profile_pic }}" width="32" height="32">
             </div>
             {% else %}
         <div class="profile-picture">

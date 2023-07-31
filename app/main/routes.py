@@ -12,6 +12,9 @@ import os
 from app.main import bp
 from flask_sqlalchemy import Pagination 
 from sqlalchemy import or_
+import boto3
+from botocore.exceptions import ClientError
+
 @bp.before_app_request
 def before_request():
 	if current_user.is_authenticated:
@@ -129,28 +132,25 @@ def edit_profile(username):
 	form = EditProfileForm(current_user.username)
 	id = current_user.id
 	name_to_update = User.query.get_or_404(id)
-	# form.username.data = current_user.username
-	# form.about_me.data = current_user.about_me
 	if form.validate_on_submit():
 		current_user.username = form.username.data
 		current_user.about_me = form.about_me.data
 		db.session.commit()
 		if request.files['profile_pic']:
-			name_to_update.profile_pic = request.files['profile_pic']
-			pic_filename = secure_filename(name_to_update.profile_pic.filename)
+			file = request.files['profile_pic']
+			pic_filename = secure_filename(file.filename)
 			pic_name = str(uuid.uuid1()) + "_" + pic_filename
-			saver=request.files['profile_pic']
-			name_to_update.profile_pic = pic_name
+			s3_client = boto3.client('s3', region_name='us-east-1')
 			try:
+				s3_client = boto3.client('s3')
+				s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+				name_to_update.profile_pic = pic_name # else: e
 				db.session.commit()
-				saver.save(os.path.join(current_app.config['UPLOAD_FOLDER'],pic_name))
-				# return render_template("edit_profile.html", form=form, name_to_update = name_to_update,id=id)
 				return redirect(url_for('main.user', username=username))
-			except:
+			except ClientError as e:
+				print(f"Error uploading file to AWS S3: {e}")
 				flash("Error!  Looks like there was a problem...try again!")
 				return render_template("edit_profile.html", form=form, name_to_update=name_to_update, id=id)
-		else:
-			db.session.commit()
 		if len(form.username.data) <= 20:
 			current_user.username = form.username.data
 			db.session.commit()
@@ -161,9 +161,7 @@ def edit_profile(username):
 	elif request.method == 'GET':
 		form.username.data = current_user.username
 		form.about_me.data = current_user.about_me
-		return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
-	return redirect(url_for('main.user', username=username))
- 	# return render_template('edit_profile.html', form=form, name_to_update=name_to_update, id=id, username=username)
+	return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
                 
 @bp.route('/follow/<username>', methods=['POST'])
 @login_required

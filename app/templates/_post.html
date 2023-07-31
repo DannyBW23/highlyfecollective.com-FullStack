@@ -32,7 +32,7 @@
     {% if post.author %}
         <div class="avatar-container">
             {% if post.author.profile_pic %}
-                <img src="{{ url_for('static', filename='images/' + post.author.profile_pic) }}" alt="Avatar">
+                <img src="https://profilepic23.s3.amazonaws.com/{{  post.author.profile_pic }}" alt="Avatar">
             {% else %}
                 <img src="{{ post.author.avatar(75) }}" alt="Avatar">
             {% endif %}
