@@ -161,7 +161,7 @@ def edit_profile(username):
 	elif request.method == 'GET':
 		form.username.data = current_user.username
 		form.about_me.data = current_user.about_me
-	return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
+	return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id, user=current_user)
                 
 @bp.route('/follow/<username>', methods=['POST'])
 @login_required
