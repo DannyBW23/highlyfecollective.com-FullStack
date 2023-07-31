@@ -52,3 +52,4 @@ Traceback (most recent call last):
 jinja2.exceptions.UndefinedError: 'user' is undefined
 2023-07-31 15:22:21,860 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
 2023-07-31 15:25:50,530 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 18:28:50,911 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]

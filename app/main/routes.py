@@ -14,6 +14,7 @@ from flask_sqlalchemy import Pagination
 from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
+from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
@@ -51,16 +52,16 @@ def post(id):
 def base():
 	form = SearchForm()
 	return dict(form=form)
-
-@bp.route('/search', methods=["GET","POST"])
+@bp.route('/search', methods=["GET", "POST"])
 def search():
-	form = SearchForm()
-	posts = Post.query
-	if form.validate_on_submit():
-		search_query = form.searched.data
-		posts = Post.query.filter((Post.body.like('%' + search_query + '%'))|(Post.author.has(username=search_query))).order_by(Post.timestamp.desc()).all()
-		return render_template("search.html",form=form,searched = search_query, posts = posts)
-	return redirect(url_for('main.explore'))
+    form = SearchForm()
+    posts = Post.query
+    if form.validate_on_submit():
+        search_query = form.searched.data
+        search_query_ilike = f"%{search_query}%" 
+        posts = Post.query.filter((Post.body.ilike(search_query_ilike)) | (Post.author.has(func.lower(User.username) == search_query.lower()))).order_by(Post.timestamp.desc()).all()
+        return render_template("search.html", form=form, searched=search_query, posts=posts)
+    return redirect(url_for('main.explore'))
 
 @bp.route('/', methods=['GET'])
 @bp.route('/About_Us', methods=['GET'])
