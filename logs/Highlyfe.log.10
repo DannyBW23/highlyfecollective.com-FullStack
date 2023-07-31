@@ -1,4 +1,4 @@
-2023-07-28 04:20:05,677 ERROR: Exception on /popup [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-07-28 04:22:24,184 ERROR: Exception on /popup [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
@@ -50,8 +50,7 @@ Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2023-07-28 04:21:50,773 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 04:21:52,819 ERROR: Exception on /popup [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-07-28 04:22:40,509 ERROR: Exception on /popup [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
@@ -98,9 +97,9 @@ Traceback (most recent call last):
     {% block body -%}
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block 'body'
     {% block navbar %}
-  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 34, in block 'navbar'
-    {{ form.hidden_tag() | default('') }}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 30, in block 'navbar'
+    <li><form method="POST" action="{{ url_for('main.search')}}" class="form-inline"><div class="form-group"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched" style="margin-top: 7px;">{{ form.hidden_tag() }}</div><button class="btn btn-outline-success my-2 my-sm-0" type="submit"style="margin-top: 5px">Search</button></form></li>
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2023-07-28 04:22:22,274 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-28 04:32:08,868 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]

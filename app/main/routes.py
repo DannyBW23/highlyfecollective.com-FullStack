@@ -129,8 +129,12 @@ def edit_profile(username):
 	form = EditProfileForm(current_user.username)
 	id = current_user.id
 	name_to_update = User.query.get_or_404(id)
-
+	# form.username.data = current_user.username
+	# form.about_me.data = current_user.about_me
 	if form.validate_on_submit():
+		current_user.username = form.username.data
+		current_user.about_me = form.about_me.data
+		db.session.commit()
 		if request.files['profile_pic']:
 			name_to_update.profile_pic = request.files['profile_pic']
 			pic_filename = secure_filename(name_to_update.profile_pic.filename)
@@ -157,7 +161,6 @@ def edit_profile(username):
 	elif request.method == 'GET':
 		form.username.data = current_user.username
 		form.about_me.data = current_user.about_me
-
 		return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
 	return redirect(url_for('main.user', username=username))
  	# return render_template('edit_profile.html', form=form, name_to_update=name_to_update, id=id, username=username)
