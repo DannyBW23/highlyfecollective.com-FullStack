@@ -11,7 +11,6 @@ from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from config import Config
-from flask_talisman import Talisman
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -26,8 +25,6 @@ moment = Moment()
 
 def create_app(config_class=Config):
 	app = Flask(__name__)
-	if 'DYNO' in os.environ:
-		Talisman(app)
 	app.config.from_object(config_class)
 	db.init_app(app)
 	migrate.init_app(app, db)
