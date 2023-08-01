@@ -26,7 +26,6 @@ moment = Moment()
 def create_app(config_class=Config):
 	app = Flask(__name__)
 	app.config.from_object(config_class)
-	app.config.update(dict(PREFERRED_URL_SCHEME = 'https'))
 	db.init_app(app)
 	migrate.init_app(app, db)
 	login.init_app(app)
@@ -70,7 +69,7 @@ def create_app(config_class=Config):
 		app.logger.addHandler(file_handler)
 		app.logger.setLevel(logging.INFO)
 		app.logger.info('Highlyfe startup')
-	return app
+	return app 
 
 
 from app import models #errors, routes

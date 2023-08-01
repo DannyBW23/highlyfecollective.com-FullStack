@@ -16,3 +16,4 @@ class Config(object):
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 	ADMINS = ['dannybw212@gmail.com']
 	POSTS_PER_PAGE = 50
+	SECURE_SSL_REDIRECT = True
