@@ -18,12 +18,13 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
-	if not request.is_secure:
-		new_url = request.url.replace('http://', 'https://', 1)
-		return redirect(new_url, code=301)
+
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
+	new_url = request.url.replace('http://', 'https://', 1)
+	code = 301
+	return redirect(new_url, code=code)
 @bp.route('/studio', methods=['GET'])
 @login_required
 def studio():
