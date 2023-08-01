@@ -246,6 +246,7 @@ def delete(id):
 	else:
 		flash("Sorry, you can't delete that user!")     
 	return redirect(url_for('main.edit_profile'))
+#ee
 @bp.route('/posts/action/<int:id>/<action>', methods=['POST'])
 @login_required
 def post_action(id, action):
