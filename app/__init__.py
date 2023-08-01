@@ -12,7 +12,6 @@ from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from config import Config
 from flask_talisman import Talisman, ALLOW_FROM
-from werkzeug.middleware.proxy_fix import ProxyFix
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
@@ -26,7 +25,6 @@ moment = Moment()
 
 def create_app(config_class=Config):
 	app = Flask(__name__)
-	app.wsgi_app = ProxyFix(app.wsgi_app)
 	app.config.from_object(config_class)
 	db.init_app(app)
 	migrate.init_app(app, db)

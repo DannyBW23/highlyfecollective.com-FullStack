@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, jsonify, current_app, g
+from flask import render_template, flash, redirect, url_for, request, jsonify, current_app, g, Response
 from flask_login import current_user,login_required
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
@@ -15,13 +15,16 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
+from http import HTTPStatus
+from typing import Optional
+def https_redirect() -> Optional[Response]:
+    if request.scheme == 'http':
+        return redirect(url_for(request.endpoint,_scheme='https',_external=True),HTTPStatus.PERMANENT_REDIRECT)
+if current_app.env == 'production':
+	current_app.before_request(https_redirect)
 
 @bp.before_app_request
 def before_request():
-	if not request.is_secure:
-		url = request.url.replace('http://', 'https://', 1)
-		code = 301
-		return redirect(url, code=code)
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
