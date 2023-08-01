@@ -18,7 +18,7 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
-	if not request.is_secure and request.headers.get('Host', '').startswith('www.'):
+	if request.url.startswith('http://'):
 		new_url = request.url.replace('http://', 'https://', 1)
 		return redirect(new_url, code=301)
 	if current_user.is_authenticated:
