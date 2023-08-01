@@ -11,23 +11,22 @@ from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from config import Config
+from flask_talisman import Talisman
 
-
-db = SQLAlchemy()#removed app
-migrate = Migrate()#removed app,db
-login = LoginManager()#removed app
+db = SQLAlchemy()
+migrate = Migrate()
+login = LoginManager()
 login.login_message = ''
 login.login_view= 'auth.login'
-mail = Mail() #removed app
-ckeditor = CKEditor()#removed app
-csrf = CSRFProtect()#removed app
-bootstrap=Bootstrap()#removed app
-moment = Moment()#removed app
-from flask_talisman import Talisman
+mail = Mail() 
+ckeditor = CKEditor()
+csrf = CSRFProtect()
+bootstrap=Bootstrap()
+moment = Moment()
 
 def create_app(config_class=Config):
 	app = Flask(__name__)
-	Talisman(app, content_security_policy=None)
+	Talisman(app)
 	app.config.from_object(config_class)
 	db.init_app(app)
 	migrate.init_app(app, db)
