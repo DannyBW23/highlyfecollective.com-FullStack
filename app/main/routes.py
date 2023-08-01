@@ -18,8 +18,7 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
-	scheme = request.headers.get('X-Forwarded-Proto')
-	if scheme and scheme == 'http' and request.url.startswith('http://'):
+	if not request.is_secure:
 		url = request.url.replace('http://', 'https://', 1)
 		code = 301
 		return redirect(url, code=code)
