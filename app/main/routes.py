@@ -15,13 +15,6 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-from http import HTTPStatus
-from typing import Optional
-def https_redirect() -> Optional[Response]:
-    if request.scheme == 'http':
-        return redirect(url_for(request.endpoint,_scheme='https',_external=True),HTTPStatus.PERMANENT_REDIRECT)
-if current_app.env == 'production':
-	current_app.before_request(https_redirect)
 
 @bp.before_app_request
 def before_request():
