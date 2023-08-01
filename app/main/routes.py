@@ -25,16 +25,6 @@ if current_app.env == 'production':
 
 @bp.before_app_request
 def before_request():
-	if not request.is_secure:
-		currentUrl = request.url
-		if currentUrl.startswith('http://'):
-			redirectUrl = currentUrl.replace('http://', 'https://', 1)		
-		elif currentUrl.startswith('www'):
-			redirectUrl = currentUrl.replace('www', 'https://www', 1)
-		else:
-			redirectUrl = 'https://www.highlyfecollective.com'
-		code = 301
-		return redirect(redirectUrl, code=code)
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
