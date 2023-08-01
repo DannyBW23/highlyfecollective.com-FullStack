@@ -114,7 +114,7 @@ def delete_post(id):
 			flash("Whoops! There was a problem deleting post, try again...")
 			posts = Post.query.order_by(Post.timestamp.desc()).all()
 			return redirect(request.referrer or url_for('main.explore'))
-                             
+                             #test
 @bp.route('/user/<username>')
 @login_required
 def user(username):
