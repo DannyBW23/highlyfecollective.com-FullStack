@@ -18,9 +18,9 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
-	if request.headers.get('X-Forwarded-Proto') == 'http':
-		url = request.url.replace('http://', 'https://', 1)
-		return redirect(url, code=301)
+	if not request.is_secure and request.headers.get('Host', '').startswith('www.'):
+		new_url = request.url.replace('http://', 'https://', 1)
+		return redirect(new_url, code=301)
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()

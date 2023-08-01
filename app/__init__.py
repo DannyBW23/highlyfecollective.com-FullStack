@@ -11,7 +11,7 @@ from flask_ckeditor import CKEditor
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from config import Config
-
+from flask_talisman import Talisman, ALLOW_FROM
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
@@ -25,6 +25,7 @@ moment = Moment()
 
 def create_app(config_class=Config):
 	app = Flask(__name__)
+	talisman = Talisman(app, force_https=True)
 	app.config.from_object(config_class)
 	db.init_app(app)
 	migrate.init_app(app, db)
@@ -50,7 +51,6 @@ def create_app(config_class=Config):
 
 
 	if not app.debug and not app.testing:
-		print('hey')
 		if app.config['MAIL_SERVER']:
 			auth = None
 			if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
