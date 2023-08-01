@@ -26,7 +26,8 @@ moment = Moment()
 
 def create_app(config_class=Config):
 	app = Flask(__name__)
-	Talisman(app)
+	if 'DYNO' in os.environ:
+		Talisman(app)
 	app.config.from_object(config_class)
 	db.init_app(app)
 	migrate.init_app(app, db)
@@ -36,7 +37,6 @@ def create_app(config_class=Config):
 	ckeditor.init_app(app)
 	bootstrap.init_app(app)
 	moment.init_app(app)
-	app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
