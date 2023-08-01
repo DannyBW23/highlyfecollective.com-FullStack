@@ -15,7 +15,10 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-
+def https_redirect():
+	if request.headers.get('X-Forwarded-Proto', 'http') == 'http':
+		url = f'https://{request.headers["Host"]}{request.full_path}'
+		return redirect(url, code=301)
 @bp.before_app_request
 def before_request():
 	if current_user.is_authenticated:
