@@ -33,7 +33,7 @@ color: white;
 
 </style>
         </div class="profile-link">
-        <p style="text-align: left;"><a href="{{ url_for('main.followers', username=user.username) }}"style="color:white"> <span style="font-size: 28px;">Followers: {{ user.followers.count() }}</span></a>
+        <p style="text-align: left;"><a href="{{ url_for('main.user, username=follwer_user.username) }}"style="color:white"> <span style="font-size: 28px;">Followers: {{ user.followers.count() }}</span></a>
           </div>
         {% for follower_user in followers %}
             <a href="{{ url_for('main.user', username=follower_user.username) }}"style="font-size: 28px;color:white; display: block">{{ follower_user.username }}</a>
