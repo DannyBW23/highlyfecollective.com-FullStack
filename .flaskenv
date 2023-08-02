@@ -1,8 +1,8 @@
 FLASK_APP=highlyfe3.py
-MAIL_SERVER=smtp.gmail.com
+MAIL_SERVER=smtp.mailgun.org
 MAIL_PORT=587
 MAIL_USE_TLS=1
-MAIL_USERNAME=dannybw212@gmail.com
-MAIL_PASSWORD=lypxhhwdbgivpmpz
+MAIL_USERNAME=postmaster@sandbox8f42d78d781f4333944b13dce539e940.mailgun.org
+MAIL_PASSWORD=0d7137e596a31ba06201e1f719d1c522-4e034d9e-7fbb44d1
 
 
