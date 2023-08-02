@@ -18,6 +18,8 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
+	if not current_user.is_authenticated:
+		return redirect(url_for('auth.login'))
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
