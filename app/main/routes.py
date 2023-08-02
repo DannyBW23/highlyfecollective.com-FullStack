@@ -23,8 +23,10 @@ def before_request():
 			url = request.url.replace("http://", "https://", 1)
 			return redirect(url, code=301)
 	if current_user.is_authenticated:
+		url = request.url.replace("http://", "https://", 1)
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
+		return redirect(url, code=301)
 
 @bp.route('/studio', methods=['GET'])
 @login_required
