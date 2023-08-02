@@ -28,7 +28,10 @@ def before_request():
 			current_user.last_seen = datetime.utcnow()
 			db.session.commit()
 			return redirect(url, code=301)
-
+	if request.is_secure:
+		if current_user.is_authenticated:
+			current_user.last_seen = datetime.utcnow()
+			db.session.commit()	
 @bp.route('/studio', methods=['GET'])
 @login_required
 def studio():
