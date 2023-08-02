@@ -21,7 +21,10 @@ def before_request():
 	if not request.is_secure:
 		if not current_user.is_authenticated:
 			url = request.url.replace("http://", "https://", 1)
-			print("Request URL:", url)
+			return redirect(url, code=301)
+	if not request.is_secure and not request.host.startswith('www.'):
+		if not current_user.is_authenticated:
+			url = request.url.replace("http://", "https://www.", 1)
 			return redirect(url, code=301)
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
