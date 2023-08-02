@@ -18,7 +18,10 @@ from sqlalchemy import func
 
 @bp.before_app_request
 def before_request():
-	print("Request URL:", request.url)
+	if not current_user.is_authenticated:
+		url = request.url.replace("http://", "https://", 1)
+		print("Request URL:", url)
+		return redirect(url, code=301)
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.utcnow()
 		db.session.commit()
