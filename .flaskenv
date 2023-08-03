@@ -3,7 +3,7 @@ MAIL_SERVER=smtp.mailgun.org
 MAIL_PORT=587
 MAIL_USE_TLS=1
 MAIL_USERNAME=postmaster@highlyfecollective.com
-MAIL_PASSWORD=a45a4a8593f23b5adf1f1aefda1564af-4e034d9e-3355e9df
+MAIL_PASSWORD=878aecdef6211dfa52916cad8f04f616-4e034d9e-de17caf4
 
 
 #
