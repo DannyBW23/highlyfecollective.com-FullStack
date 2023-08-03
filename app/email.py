@@ -7,14 +7,18 @@ from app import mail
 
 def send_async_email(app, msg):
 	with app.app_context():
+		print("Sending email in the app context...")
 		mail.send(msg)
-
+		print("Email sent.")
 
 def send_email( subject, sender, recipients, text_body, html_body):
+	print("Sending email...")
 	msg = Message(subject, sender=sender, recipients=recipients)
 	msg.body = text_body
 	msg.html = html_body
+	print("Email message created.")
 	Thread(target=send_async_email, args=(current_app._get_current_object(), msg)).start()
+	print("Asynchronous email sending started.")
 
 
 #def send_password_reset_email( user):
