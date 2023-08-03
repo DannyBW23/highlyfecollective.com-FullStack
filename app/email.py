@@ -12,7 +12,7 @@ from app import mail
 # 		print("Email sent.")
 
 def send_email( subject, sender, recipients, text_body, html_body):
-	with app.app_context():
+	with current_app.app_context():
 		print("Sending email...")
 		msg = Message(subject, sender=sender, recipients=recipients)
 		msg.body = text_body
