@@ -2,7 +2,7 @@ FLASK_APP=highlyfe3.py
 MAIL_SERVER=smtp.mailgun.org
 MAIL_PORT=587
 MAIL_USE_TLS=1
-MAIL_USERNAME=postmaster@sandbox8f42d78d781f4333944b13dce539e940.mailgun.org
-MAIL_PASSWORD=3f2c33c4a0321d29b6a2558932f77186-4e034d9e-5d2ec445
+MAIL_USERNAME=postmaster@highlyfecollective.com
+MAIL_PASSWORD=a45a4a8593f23b5adf1f1aefda1564af-4e034d9e-3355e9df
 
 
