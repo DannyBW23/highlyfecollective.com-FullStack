@@ -52,7 +52,7 @@ def create_app(config_class=Config):
 	if not app.debug and not app.testing:
 		if app.config['MAIL_SERVER']:
 			auth = None
-			if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD'], app.config['MAIL_AUTHENTICATION']:
+			if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD'] or app.config['MAIL_AUTHENTICATION']:
 				auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'],app.config['MAIL_AUTHENTICATION']) 
 			secure = None
 			if app.config['MAIL_USE_TLS']:
