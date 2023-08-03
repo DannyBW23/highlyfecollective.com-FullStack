@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 {% block app_content %}
-<head><meta name="viewport" content="width=device-width, initial-scale=.6"></head>
-  <head>
-  <style>
-          
- 
+    <style>
         body {
             background-color: rgba(17, 17, 184, 0.748);
             color: white; }
             .col-md-4 {
-            margin-right: 2px;
+            padding:0px;
     }
  
         
         .bio-container {
-    margin-left: 550px;
+    margin-left: 1px;
     width: 300px;
     inline-size: 200px; 
     overflow-wrap: break-word;
@@ -26,12 +22,11 @@
     }
     .post-container{
     margin-top: 10px;
-    margin-right: 1px;
     overflow-wrap: break-word;
-    inline-size: 1450px;
+    inline-size: 200px;
 }
 .post-container hr {
-        width: 1000%;
+        width: 147%;
         margin-left: 0px;
     }
     
@@ -40,23 +35,21 @@
   height: 150px;
   border-radius: 50%; 
   overflow: hidden;
-  margin-left: 575px;
+  margin-left: 3px;
 }
 
 .profile-picture img {
-    
   width: 100%;
   height: 100%;
   object-fit: cover; 
 }
     </style>
-    </head>
         {% if current_user.id == 1 and current_user.id != user.id and 'delete' not in request.endpoint %}
-        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger"  style="position: absolute; top: 110px; right: 20px;">Delete Account</a>
+        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger"  style="position: absolute; top: 100px; right: 20px;">Delete Account</a>
     {% endif %}
 
 </div> 
-       	<h1 style="margin-left:566px">{{ user.username }}</h1>
+       	<h1 style="margin-left: 60px">{{ user.username }}</h1>
 
              {% if user.profile_pic %}
             <div class="profile-picture">
@@ -71,23 +64,24 @@
             
 	    
         
-            {% if user.last_seen %}<span style="margin-left:550px">Last seen on: {{ moment(user.last_seen).format('LLL') }}</span>{% endif %}
+            {% if user.last_seen %}<span style="margin-left:1px">Last seen on: {{ moment(user.last_seen).format('LLL') }}</span>{% endif %}
             <p>
-            <span style="margin-left:550px"><a href="{{ url_for('main.followers', username=user.username) }}"style="font-size: 18px; color:white">Followers: <span style= "font-size: 18px;">{{ user.followers.count() }}</a> <a href="{{ url_for('main.following', username=user.username) }}"style="font-size:18px;color:white">Following: <span style="font-size: 18px;">{{ user.followed.count() }}</span></a></span>
+            <span style="margin-left:1px"><a href="{{ url_for('main.followers', username=user.username) }}"style="font-size: 18px; color:white">Followers: <span style= "font-size: 18px;">{{ user.followers.count() }}</span></a></span>
+            <span style="margin-left:1px"><a href="{{ url_for('main.following', username=user.username) }}"style="font-size:18px;color:white">Following: <span style="font-size: 18px;">{{ user.followed.count() }}</span></a></span>
                 </a>
             </p>
             {% if user == current_user %}
-                <p><button class="btn btn-primary" style="margin-left:575px"onclick="location.href='{{ url_for('main.edit_profile', username=user.username) }}'">Edit your profile</button></p>
+                <p><button class="btn btn-primary" onclick="location.href='{{ url_for('main.edit_profile', username=user.username) }}'">Edit your profile</button></p>
             {% elif not current_user.is_following(user) %}
                 <p>
-                    <form action="{{ url_for('main.follow', username=user.username) }}"style="margin-left:600px" method="post">
+                    <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
                         {{ form.submit(value=('Follow'), class='btn btn-default') }}
                     </form>
                 </p>
             {% else %}
-             <p>
-                    <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post" style="margin-left: 600px">
+                <p>
+                    <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post">
                         {{ form.hidden_tag() }}
                         {{ form.submit(value=('Unfollow'), class='btn btn-default') }}
                     </form>
