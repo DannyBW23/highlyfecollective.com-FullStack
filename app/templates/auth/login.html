@@ -2,7 +2,9 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 <head>
+    
     <style>
 
         body {
@@ -65,6 +67,6 @@
     <p>
         Forgot Your Password? <a href="{{ url_for('auth.reset_password_request') }}">Click to Reset It</a>
     </p>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
 </body>
 {% endblock %}
