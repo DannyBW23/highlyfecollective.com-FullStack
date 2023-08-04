@@ -111,7 +111,16 @@
                 <p style="font-size: 18px;"><strong>Bio:</strong></p>
             </div>
         {% endif %}
-        
+        {% if user != current_user %}
+        <p>
+          <form method="get" action="{{ url_for('main.send_message', recipient=user.username) }}" style="display: inline;">
+            <button type="submit" class="btn btn-primary">
+              {{ ('Message') }}
+            </button>
+          </form>
+        </p>
+      {% endif %}
+      
 
         </div>
     </div>

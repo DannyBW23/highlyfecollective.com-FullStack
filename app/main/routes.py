@@ -4,8 +4,8 @@ from flask_login import current_user,login_required
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 from app import db
-from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm
-from app.models import User, Post
+from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm
+from app.models import User, Post, Message, Notification
 from PIL import Image
 import uuid
 import os
@@ -15,23 +15,22 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-
-@bp.before_app_request
-def before_request():
-	if not request.is_secure:
-		if not current_user.is_authenticated:
-			url = request.url.replace("http://", "https://", 1)
-			return redirect(url, code=301)
-	if not request.is_secure:
-		if current_user.is_authenticated:
-			url = request.url.replace("http://", "https://", 1)
-			current_user.last_seen = datetime.utcnow()
-			db.session.commit()
-			return redirect(url, code=301)
-	if request.is_secure:
-		if current_user.is_authenticated:
-			current_user.last_seen = datetime.utcnow()
-			db.session.commit()	
+# @bp.before_app_request
+# def before_request():
+# 	if not request.is_secure:
+# 		if not current_user.is_authenticated:
+# 			url = request.url.replace("http://", "https://", 1)
+# 			return redirect(url, code=301)
+# 	if not request.is_secure:
+# 		if current_user.is_authenticated:
+# 			url = request.url.replace("http://", "https://", 1)
+# 			current_user.last_seen = datetime.utcnow()
+# 			db.session.commit()
+# 			return redirect(url, code=301)
+# 	if request.is_secure:
+# 		if current_user.is_authenticated:
+# 			current_user.last_seen = datetime.utcnow()
+# 			db.session.commit()	
 @bp.route('/studio', methods=['GET'])
 @login_required
 def studio():
@@ -50,7 +49,6 @@ def index():
 	return render_template('index.html', title='Highlyfe', prev_url=prev_url, next_url=next_url)
 @bp.route('/posts')
 def posts():
-	# Grab all the posts from the database
 	posts = Post.query.order_by(Post.date_posted)
 	return render_template("_posts.html", posts=posts)
 
@@ -247,17 +245,13 @@ def delete(id):
 			flash("User Deleted Successfully!!")
 			our_users = User.query.all()
 			return redirect(url_for('main.explore'))
-   			#return render_template("edit_profile.html", form=form, name=name, our_users=our_users,name_to_update=user_to_delete)
-
 		except:
 			flash("Whoops! There was a problem deleting the user. Please try again...")
 			our_users  = User.query.all()
-			return render_template("edit_profile.html", form=form, name=name, our_users=our_users, name_to_update=user_to_delete)
-                
+			return render_template("edit_profile.html", form=form, name=name, our_users=our_users, name_to_update=user_to_delete)               
 	else:
 		flash("Sorry, you can't delete that user!")     
 	return redirect(url_for('main.edit_profile'))
-#ee#ee
 @bp.route('/posts/action/<int:id>/<action>', methods=['POST'])
 @login_required
 def post_action(id, action):
@@ -308,3 +302,38 @@ def following(username):
 	if following.has_next:
 		next_url = url_for('main.following', username=username, page=following.next_num)
 	return render_template('following.html', title='Following', user=user, following=following, prev_url=prev_url, next_url=next_url)
+@bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
+@login_required
+def send_message(recipient):
+	user = User.query.filter_by(username=recipient).first_or_404()
+	form = MessageForm()	
+	if form.validate_on_submit():
+		msg = Message(author=current_user, recipient=user,body=form.message.data)
+		db.session.add(msg)
+		user.add_notification('unread_message_count', user.new_messages())
+		db.session.commit()
+		flash(('Your message has been sent.'))
+		return redirect(url_for('main.user', username=recipient))
+	return render_template('send_message.html', title=('Send Message'),form=form, recipient=recipient)
+@bp.route('/messages')
+@login_required
+def messages():
+    current_user.last_message_read_time = datetime.utcnow()
+    current_user.add_notification('unread_message_count', 0)
+    db.session.commit()
+    page = request.args.get('page', 1, type=int)
+    messages = current_user.messages_received.order_by(Message.timestamp.desc()).paginate(page=page, per_page=current_app.config['POSTS_PER_PAGE'],error_out=False)
+    next_url = url_for('main.messages', page=messages.next_num)if messages.has_next else None
+    prev_url = url_for('main.messages', page=messages.prev_num)if messages.has_prev else None
+    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
+@bp.route('/notifications')
+@login_required
+def notifications():
+    since = request.args.get('since', 0.0, type=float)
+    notifications = current_user.notifications.filter(
+        Notification.timestamp > since).order_by(Notification.timestamp.asc())
+    return jsonify([{
+        'name': n.name,
+        'data': n.get_data(),
+        'timestamp': n.timestamp
+    } for n in notifications])

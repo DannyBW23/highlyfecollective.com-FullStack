@@ -1,4 +1,16 @@
 {% extends 'bootstrap/base.html' %}
+<style>
+    .badge {
+      position: absolute;
+      top: 0; 
+      right: -150px; 
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  </style>
 {% block title %}
     {% if title %}{{ title }} - Highlyfe{% endif %}
 {% endblock %}
@@ -21,15 +33,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.studio', username=current_user.username) }}">Studio G</a></li>
-                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
-                    <li><a href="{{ url_for('main.explore') }}">Explore</a></li>
-                    <li><a href="{{ url_for('main.feed') }}">Feed</a></li>
                     <li><a href="{{ url_for('main.About_Us') }}">Promotion</a></li>
+                    <li><a href="{{ url_for('main.explore') }}">Explore</a></li>
                     {% if form %}  <li><form method="POST" action="{{ url_for('main.search')}}" class="form-inline"><div class="form-group"><input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched" style="margin-top: 7px;">{{ form.hidden_tag() }}</div><button class="btn btn-outline-success my-2 my-sm-0" type="submit"style="margin-top: 5px">Search</button></form></li> {% endif %} 
-                    </ul> 
-                    <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-                    </ul>
+                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
+                    <li><a href="{{ url_for('main.feed') }}">Feed</a></li>
+                    <li><a href="{{ url_for('main.messages') }}">{{ ('Messages') }}{% set new_messages = current_user.new_messages() %} <span id="message_count" class="badge"style="visibility: {% if new_messages %}visible{% else %}hidden {% endif %};">{{ new_messages }}</span></a></li></ul>
+                     <ul class="nav navbar-nav navbar-right"><li><a href="{{ url_for('auth.logout') }}">Logout</a></li></ul>
               {% endif %}
         </div>
     </div>
@@ -56,6 +66,28 @@
     {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
+    <script>
+        function set_message_count(n) {
+            $('#message_count').text(n);
+            $('#message_count').css('visibility', n ? 'visible' : 'hidden');
+        }
+        {% if current_user.is_authenticated %}
+        $(function() {
+            var since = 0;
+            setInterval(function() {
+                $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(
+                    function(notifications) {
+                        for (var i = 0; i < notifications.length; i++) {
+                            if (notifications[i].name == 'unread_message_count')
+                                set_message_count(notifications[i].data);
+                            since = notifications[i].timestamp;
+                        }
+                    }
+                );
+            }, 10000);
+        });
+        {% endif %}
+    </script>
 {% endblock %}
 
 
