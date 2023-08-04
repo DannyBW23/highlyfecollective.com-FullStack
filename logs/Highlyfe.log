@@ -96,3 +96,6 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You pro
 2023-08-04 14:21:20,194 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-04 14:26:13,199 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-04 14:27:37,789 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 15:41:54,343 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 15:43:20,168 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 15:43:46,779 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
