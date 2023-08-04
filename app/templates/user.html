@@ -44,7 +44,6 @@
   object-fit: cover; 
 }
     </style>
-     <div style=" position: absolute;top: 0;right: 1050px;height: 100%;border-right: 1px solid white;"></div>
         {% if current_user.id == 1 and current_user.id != user.id and 'delete' not in request.endpoint %}
         <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger"  style="position: absolute; top: 110px; right: 20px;">Delete Account</a>
     {% endif %}
