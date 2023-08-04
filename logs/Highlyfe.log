@@ -48,3 +48,6 @@ jinja2.exceptions.UndefinedError: '_' is undefined
 2023-08-04 18:06:04,139 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-04 18:06:04,139 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-04 18:07:47,244 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 18:28:25,654 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 18:28:48,653 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 18:28:56,390 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
