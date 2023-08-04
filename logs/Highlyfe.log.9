@@ -1,4 +1,4 @@
-2023-07-28 17:08:03,633 ERROR: Exception on /user/Clem/popup [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-07-30 21:39:50,013 ERROR: Exception on /user/Clem [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -10,8 +10,8 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 303, in user_popup
-    return render_template('user_popup.html', user=user, form=form)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 125, in user
+    return render_template('user.html', user=user, posts=posts.items,form=form, next_url=next_url, prev_url=prev_url,  user_to_delete=name_to_update)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
@@ -26,21 +26,13 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/user_popup.html", line 65, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2023-07-28 17:08:22,266 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:09:07,796 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:09:26,353 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:09:37,779 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:12:13,706 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:13:38,688 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:15:31,228 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:16:15,201 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:16:57,830 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:20:13,759 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:22:11,292 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:22:14,492 ERROR: Exception on /explore [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+  File "/Users/danielweir/highlyfe3/app/templates/user.html", line 110, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2023-07-30 21:41:53,283 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 21:43:42,256 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 21:50:59,862 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 21:51:02,738 ERROR: Exception on /user/Clem [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,63 +44,69 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 95, in explore
-    return render_template("explore.html",title='Explore', form=form,user=current_user,posts=posts,next_url=next_url,prev_url=prev_url)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 151, in render_template
-    return _render(app, template, context)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 132, in _render
-    rv = template.render(context)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 125, in user
+    return render_template('user.html', user=user, posts=posts.items,form=form, next_url=next_url, prev_url=prev_url,  user_to_delete=name_to_update)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/explore.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
-    {%- block html %}
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
-    {% block body -%}
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
-    {% block content -%}
-  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 55, in block 'content'
-    {% block app_content %}{% endblock %}
-  File "/Users/danielweir/highlyfe3/app/templates/explore.html", line 19, in block 'app_content'
-    {% include '_post.html' %}
+  File "/Users/danielweir/highlyfe3/app/templates/user.html", line 111, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2023-07-30 21:51:58,929 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 21:57:24,945 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 22:00:22,147 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 22:00:42,719 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-30 22:01:44,772 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 13:45:00,766 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 13:45:09,497 ERROR: Exception on /edit_profile/Clem [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 173, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/_post.html", line 73, in template
-    {% endif %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-2023-07-28 17:24:13,130 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:26:52,373 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:27:38,186 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:30:55,263 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:32:36,213 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:33:32,286 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:33:52,543 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:36:14,951 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:36:39,804 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:37:06,031 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:38:34,347 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:39:22,412 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:39:55,246 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:40:22,922 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:41:10,121 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:41:46,543 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:42:30,531 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:43:39,025 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:46:56,846 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:47:37,686 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:55:43,843 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 17:57:46,910 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:00:53,650 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:04:20,224 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:14:30,923 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:16:01,226 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:18:17,204 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:22:15,692 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:22:49,801 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+  File "/Users/danielweir/highlyfe3/app/templates/edit_profile.html", line 35, in template
+    {% else %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2023-07-31 13:46:33,972 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 13:51:34,827 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 13:53:36,094 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 13:55:45,883 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:06:40,940 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:14:11,727 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:15:16,115 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:18:41,574 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:29:45,698 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:35:29,285 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
