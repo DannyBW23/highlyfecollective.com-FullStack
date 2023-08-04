@@ -1,16 +1,15 @@
-2023-07-28 18:26:02,387 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:48:33,144 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:50:50,436 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:56:20,620 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 18:56:45,929 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:00:06,184 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:01:30,501 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:02:42,004 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:08:14,450 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:09:58,029 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:12:28,142 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:16:03,107 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:16:05,066 ERROR: Exception on /About_Us [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-07-31 14:46:35,506 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:53:28,523 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:55:42,660 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 14:57:44,743 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:02:31,206 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:03:07,282 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:03:34,556 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:04:03,569 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:04:37,694 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:18:24,307 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:18:26,969 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:20:43,370 ERROR: Exception on /edit_profile/Bron [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -22,8 +21,8 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 67, in About_Us
-    return render_template('About_Us.html', title='About Us')
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 164, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile',form=form,name_to_update= name_to_update,id=id)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 151, in render_template
     return _render(app, template, context)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 132, in _render
@@ -32,67 +31,85 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 123, in template
-    {% endblock %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2023-07-28 19:16:56,303 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:27:06,806 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:28:57,537 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:29:37,154 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:32:25,258 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 19:45:32,718 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:07:54,746 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:13:17,480 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:22:49,428 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:23:53,683 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:29:08,953 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:38:06,489 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:39:33,841 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:40:33,284 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:41:59,240 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 20:43:55,148 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-28 21:48:35,822 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-29 00:40:20,059 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:79]
-2023-07-29 02:03:18,119 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:79]
-2023-07-29 10:38:57,545 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:79]
-2023-07-29 12:23:40,286 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-29 14:39:45,512 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-29 14:39:51,931 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-29 23:23:45,091 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 11:30:51,333 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 13:03:48,574 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 14:07:56,015 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 14:08:26,141 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:18:06,638 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:19:01,251 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:20:14,152 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:21:19,101 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:21:19,888 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:24:04,611 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:24:05,371 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 15:56:09,207 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:00:48,705 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:07:29,310 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:10:06,401 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:10:33,657 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:11:13,449 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:14:23,442 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:15:51,365 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:16:05,932 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:17:55,393 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:18:23,740 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:18:43,958 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:18:49,370 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:20:56,089 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 16:25:55,483 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 20:03:57,899 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 20:26:17,354 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 20:38:18,711 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 20:39:17,409 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 21:30:18,968 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 21:37:37,560 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
-2023-07-30 21:39:44,006 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+  File "/Users/danielweir/highlyfe3/app/templates/edit_profile.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 53, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/danielweir/highlyfe3/app/templates/edit_profile.html", line 32, in block 'app_content'
+    <img src="{{ user.avatar(128) }}"alt="Avatar" width="225" height="225">
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2023-07-31 15:22:21,860 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 15:25:50,530 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-07-31 18:28:50,911 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:75]
+2023-08-01 18:00:25,210 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-01 20:02:30,220 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-01 20:08:57,855 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-02 15:07:51,359 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 09:36:10,609 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 09:36:30,217 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 09:36:52,109 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 09:37:35,234 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 11:40:54,971 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 11:42:20,939 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 11:43:06,435 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 11:43:29,793 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 12:21:12,587 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:48:39,362 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:49:15,077 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:49:30,900 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:49:45,046 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 59, in reset_password_request
+    send_password_reset_email(user)
+TypeError: send_password_reset_email() missing 4 required positional arguments: 'from_address', 'subject', 'plaintext', and 'html'
+2023-08-03 13:50:48,590 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:51:31,002 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 59, in reset_password_request
+    send_password_reset_email(user)
+TypeError: send_password_reset_email() missing 4 required positional arguments: 'from_address', 'subject', 'plaintext', and 'html'
+2023-08-03 13:55:58,710 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
+2023-08-03 13:56:11,467 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 59, in reset_password_request
+    send_mail(user)
+  File "/Users/danielweir/highlyfe3/app/auth/email.py", line 19, in send_mail
+    from_address = current_app.config['MAIL_USERNAME']
+KeyError: 'MAIL_USERNAME'
+2023-08-03 13:56:50,255 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]

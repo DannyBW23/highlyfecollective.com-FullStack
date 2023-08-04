@@ -1,4 +1,4 @@
-2023-08-03 14:54:47,300 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-04 11:28:07,028 ERROR: Exception on /send_message/Bron [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,8 +8,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 60, in reset_password_request
-    html_content = render_template('templates/email/reset_password_email.html',user=user,token=user.get_reset_password_token(),url_for=url_for)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 321, in send_message
+    return render_template('send_message.html', title=('Send Message'),form=form, recipient=recipient)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
@@ -18,14 +20,36 @@ Traceback (most recent call last):
     return self._load_template(name, globals)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
     template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 126, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 64, in get_source
-    return self._get_source_fast(environment, template)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 98, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: templates/email/reset_password_email.html
-2023-08-03 14:54:59,507 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/send_message.html", line 11, in template
+    <h1>{{ ('Send Message to %(recipient)s', recipient=recipient) }}</h1>
+jinja2.exceptions.TemplateSyntaxError: expected token ')', got '='
+2023-08-04 11:32:13,533 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:35:00,499 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:38:24,235 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:40:28,750 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:40:41,656 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:41:15,426 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:41:30,576 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:46:07,870 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 11:59:43,792 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:00:07,712 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:11:29,669 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:11:42,059 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:26:18,155 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:46:00,854 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:46:06,656 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:46:54,630 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 12:47:06,311 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:14:43,035 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:15:00,886 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:15:07,494 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:15:18,585 ERROR: Exception on /messages [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,8 +59,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 60, in reset_password_request
-    html_content = render_template('templates/email/reset_password_email.html',user=user,token=user.get_reset_password_token(),url_for=url_for)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 328, in messages
+    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
@@ -45,67 +71,13 @@ Traceback (most recent call last):
     return self._load_template(name, globals)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
     template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 126, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 64, in get_source
-    return self._get_source_fast(environment, template)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 98, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: templates/email/reset_password_email.html
-2023-08-03 14:55:14,085 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
-2023-08-03 14:55:16,170 ERROR: Exception on /auth/reset_password_request [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/app/auth/routes.py", line 60, in reset_password_request
-    html_content = render_template('templates/email/reset_password.html',user=user,token=user.get_reset_password_token(),url_for=url_for)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 126, in load
-    source, filename, uptodate = self.get_source(environment, name)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 64, in get_source
-    return self._get_source_fast(environment, template)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 98, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: templates/email/reset_password.html
-2023-08-03 14:55:54,183 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
-2023-08-03 14:58:31,934 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:71]
-2023-08-03 15:02:58,759 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:60]
-2023-08-03 15:05:39,250 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:60]
-2023-08-03 15:07:05,972 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:60]
-2023-08-03 18:24:22,743 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:24:34,962 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:25:18,587 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:26:47,681 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:29:36,339 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:29:51,019 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:30:04,894 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:30:18,306 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:30:29,629 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:31:51,005 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:32:01,547 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:32:28,397 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:33:21,490 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:35:09,386 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:36:11,072 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:36:36,384 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:38:29,238 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:42:06,466 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:43:47,581 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:44:38,758 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:45:11,054 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:47:16,726 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:47:37,599 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-03 18:47:54,937 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/messages.html", line 44, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-08-04 14:16:32,743 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]

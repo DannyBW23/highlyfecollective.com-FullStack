@@ -1,4 +1,4 @@
-2023-08-04 11:28:07,028 ERROR: Exception on /send_message/Bron [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-04 14:18:33,638 ERROR: Exception on /messages [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -10,8 +10,8 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 321, in send_message
-    return render_template('send_message.html', title=('Send Message'),form=form, recipient=recipient)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 328, in messages
+    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
@@ -26,23 +26,73 @@ Traceback (most recent call last):
     self.handle_exception(source=source_hint)
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/send_message.html", line 11, in template
-    <h1>{{ ('Send Message to %(recipient)s', recipient=recipient) }}</h1>
-jinja2.exceptions.TemplateSyntaxError: expected token ')', got '='
-2023-08-04 11:32:13,533 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:35:00,499 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:38:24,235 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:40:28,750 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:40:41,656 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:41:15,426 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:41:30,576 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:46:07,870 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 11:59:43,792 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:00:07,712 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:11:29,669 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:11:42,059 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:26:18,155 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:46:00,854 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:46:06,656 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:46:54,630 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-04 12:47:06,311 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+  File "/Users/danielweir/highlyfe3/app/templates/messages.html", line 57, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-08-04 14:19:48,654 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:19:50,094 ERROR: Exception on /messages [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 328, in messages
+    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/messages.html", line 56, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-08-04 14:19:54,285 ERROR: Exception on /messages [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 328, in messages
+    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/messages.html", line 56, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-08-04 14:21:08,051 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:21:20,194 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:26:13,199 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-04 14:27:37,789 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]

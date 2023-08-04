@@ -6,10 +6,54 @@
         background-color: rgba(17, 17, 184, 0.748);
         color: white;
     }
+    .post-container {
+        margin-bottom: 20px;
+    }
+
+    .post-container + hr {
+        margin-top: 10px;
+    }
+
+    .avatar-container {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        float: left; 
+        margin-right: 10px; 
+    }
+
+    .avatar-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .post-content {
+        overflow: hidden; 
+    }
 </style>
     <h1>{{ ('Messages') }}</h1>
     {% for post in messages %}
-        {% include '_post.html' %}
+    <div class="post-container">
+        {% if post.author %}
+            <div class="avatar-container">
+                {% if post.author.profile_pic %}
+                    <img src="https://profilepic23.s3.amazonaws.com/{{  post.author.profile_pic }}" alt="Avatar">
+                {% else %}
+                    <img src="{{ post.author.avatar(75) }}" alt="Avatar">
+                {% endif %}
+            </div>
+            <div class="post-content">
+                <a href="{{ url_for('main.user', username=post.author.username) }}" style="color: white;">
+                    <span style="color: white; font-size: 14px;">{{ post.author.username }}</span>
+                </a>
+                <span style="color: white; font-size: 14px;">said {{ moment(post.timestamp).fromNow() }}:</span><br>
+                <span style="color: white; font-size: 14px;">{{ post.body }}</span>
+            </div>
+            {% endif %}
+        </div>
+        <hr style="border-top: 2px solid white;">
     {% endfor %}
     <nav aria-label="...">
         <ul class="pager">
@@ -25,4 +69,7 @@
             </li>
         </ul>
     </nav>
+{% block scripts %}
+{{ moment.include_moment() }}
+{% endblock %}
 {% endblock %}
