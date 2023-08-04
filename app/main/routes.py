@@ -15,6 +15,7 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
+#e
 @bp.before_app_request
 def before_request():
 	if not request.is_secure:
