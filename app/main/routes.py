@@ -235,7 +235,7 @@ def unpin_post(id):
 @bp.route('/delete/<int:id>', methods=['GET','POST'])
 @login_required
 def delete(id):
-	if id == current_user.id or  current_user.id==1 :
+	if id == current_user.id or  current_user.id==1 or current_user.id==3 or current_user.id==4:
 		user_to_delete = User.query.get_or_404(id)
 		name = None
 		form = EditProfileForm(current_user.username)
