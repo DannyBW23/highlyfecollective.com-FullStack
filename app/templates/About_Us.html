@@ -80,11 +80,11 @@
 {% if current_user.id ==1 %}
   <div class="pro">
   <form method="post">
-  {{ form.text_input() }}
-  {{ form.submit }}
+  {{ forms.text_input() }}
+  {{ forms.submit }}
   </form>
   <div class="profile-picture">
-    <p style="color: white; font-size: 22px;">What You Missed: {{ current_user.text_input }}</p>
+    <p style="color: white; font-size: 22px;">{{ current_user.text_input }}</p>
   </div>
   </div>
   {% endif %}
@@ -107,9 +107,11 @@
 {% endfor %}
 {% endif %}
 {% if current_user.id !=1 %}
+{% if current_user.text_input %}
 <div class="profile-picture_1">
-<p style="color:white;font-size:28px;">What You Missed: {{current_user.text_input}}</p>
+<p style="color:white;font-size:28px;">{{current_user.text_input}}</p>
 </div>
+{% endif %}
 {% endif %}
 {% endblock %}
 

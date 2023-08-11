@@ -4,7 +4,7 @@ from flask_login import current_user,login_required
 from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 from app import db
-from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm
+from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm
 from app.models import User, Post, Message, Notification
 from PIL import Image
 import uuid
@@ -78,27 +78,25 @@ def search():
 @login_required
 def About_Us():
 	form=EmptyForm()
+	forms=NewForm()
 	id = current_user.id
 	users = User.query.all()
 	name_to_update = User.query.get_or_404(id)
+
 	if form.validate_on_submit() :
-		text_input = form.text_input.data
+		text_input = forms.text_input.data
 		db.session.commit()
-		for user in users:
-	
-			text_input = form.text_input.data
-			user.text_input = text_input
-			db.session.commit()
-    
-			print(user.text_input)
+		if text_input:
+			for user in users:
+				text_input = forms.text_input.data
+				user.text_input = text_input
+				db.session.commit()
 		if not text_input:
 			if request.method == 'POST':
 				if 'pics' in request.files:
 					file = request.files['pics']
 					pic_filename = secure_filename(file.filename)
-
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
-					print('pic pic_name'+pic_name)
 					s3_client = boto3.client('s3', region_name='us-east-1')
 					try:
 						s3_client = boto3.client('s3')
@@ -124,12 +122,10 @@ def About_Us():
 					except ClientError as e:
 						print(f"Error uploading file to AWS S3: {e}")
 						flash("Error!  Looks like there was a problem...try again!")
-						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form)
-	# elif request.method == 'GET':
-	# 	text_input = name_to_update.text_input 
-	# 	form.text_input.data=text_input
-	return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form)
-	# return render_template('About_Us.html', title='About Us')
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+
+	return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
+
 
 @bp.route('/feed', methods=['GET'])
 @login_required
