@@ -46,3 +46,4 @@ jinja2.exceptions.UndefinedError: 'follower_user' is undefined
 2023-08-10 21:24:08,861 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-10 21:28:09,499 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-10 21:28:35,611 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-10 22:09:57,528 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
