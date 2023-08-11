@@ -7,7 +7,7 @@ from app.auth import bp
 from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
 from app.models import User
 from app.auth.email import send_mail
-
+from sqlalchemy import func
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -39,6 +39,10 @@ def register():
 		return redirect(url_for('main.index'))
 	form = RegistrationForm()
 	if form.validate_on_submit():
+		existing_user = User.query.filter(func.lower(User.username) == func.lower(form.username.data)).first()
+		if existing_user:
+				flash('Username is already taken. Please choose a different one.')
+				return redirect(url_for('auth.register'))
 		user = User(username=form.username.data, email=form.email.data)
 		user.set_password(form.password.data)
 		db.session.add(user)

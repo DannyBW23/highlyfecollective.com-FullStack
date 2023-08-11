@@ -11,7 +11,7 @@ from flask_sqlalchemy import Pagination
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-
+from sqlalchemy import func
 @bp.before_app_request
 def before_request():
 	if not request.is_secure:
@@ -193,9 +193,14 @@ def edit_profile(username):
 	id = current_user.id
 	name_to_update = User.query.get_or_404(id)
 	if form.validate_on_submit():
+		existing_user = User.query.filter(User.username.ilike(form.username.data)).first()
+		if existing_user and existing_user.username != current_user.username:	
+			flash('Please use a different username.', 'danger')
+			return redirect(url_for('main.edit_profile', username=username))
 		current_user.username = form.username.data
 		current_user.about_me = form.about_me.data
 		db.session.commit()
+
 		if request.files['profile_pic']:
 			file = request.files['profile_pic']
 			pic_filename = secure_filename(file.filename)
