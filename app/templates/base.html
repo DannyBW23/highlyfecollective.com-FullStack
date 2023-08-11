@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block navbar %}
-<nav class="navbar navbar-default justify-content-between">
+<nav class="navbar navbar-default justify-content-between"style="height: 50px;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -26,10 +26,10 @@
                 <span class="icon-bar"></span>
             </button>
         {% if current_user.is_anonymous %}
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Highlyfe</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 26px;">Highlyfe</a>
                     {% else  %}
         </div>
-    <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 30px;">Highlyfe</a>
+    <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 26px;">Highlyfe</a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('main.studio', username=current_user.username) }}">Studio G</a></li>
