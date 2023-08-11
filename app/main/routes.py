@@ -16,22 +16,22 @@ import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
 
-@bp.before_app_request
-def before_request():
-	if not request.is_secure:
-		if not current_user.is_authenticated:
-			url = request.url.replace("http://", "https://", 1)
-			return redirect(url, code=301)
-	if not request.is_secure:
-		if current_user.is_authenticated:
-			url = request.url.replace("http://", "https://", 1)
-			current_user.last_seen = datetime.utcnow()
-			db.session.commit()
-			return redirect(url, code=301)
-	if request.is_secure:
-		if current_user.is_authenticated:
-			current_user.last_seen = datetime.utcnow()
-			db.session.commit()	
+# @bp.before_app_request
+# def before_request():
+# 	if not request.is_secure:
+# 		if not current_user.is_authenticated:
+# 			url = request.url.replace("http://", "https://", 1)
+# 			return redirect(url, code=301)
+# 	if not request.is_secure:
+# 		if current_user.is_authenticated:
+# 			url = request.url.replace("http://", "https://", 1)
+# 			current_user.last_seen = datetime.utcnow()
+# 			db.session.commit()
+# 			return redirect(url, code=301)
+# 	if request.is_secure:
+# 		if current_user.is_authenticated:
+# 			current_user.last_seen = datetime.utcnow()
+# 			db.session.commit()	
 @bp.route('/studio', methods=['GET'])
 @login_required
 def studio():
@@ -83,14 +83,17 @@ def About_Us():
 	users = User.query.all()
 	name_to_update = User.query.get_or_404(id)
 
-	if form.validate_on_submit() :
+	if forms.validate_on_submit() :
 		text_input = forms.text_input.data
+
 		db.session.commit()
 		if text_input:
 			for user in users:
 				text_input = forms.text_input.data
+				print(text_input)
 				user.text_input = text_input
 				db.session.commit()
+	if form.validate_on_submit() :
 		if not text_input:
 			if request.method == 'POST':
 				if 'pics' in request.files:
@@ -110,13 +113,16 @@ def About_Us():
 						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form)
 				if 'pics_1' in request.files:
 					file = request.files['pics_1']
+					print(file)
 					pic_filename = secure_filename(file.filename)
+					print(pic_filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
 					s3_client = boto3.client('s3', region_name='us-east-1')
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
 						name_to_update.pics_1 = pic_name 
+						print(name_to_update.pics_1)
 						db.session.commit()
 						return redirect(url_for('main.About_Us', form=form))
 					except ClientError as e:
