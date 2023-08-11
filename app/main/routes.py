@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, jsonify, c
 from flask_login import current_user,login_required
 from werkzeug.utils import secure_filename
 from app import db
-from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm
+from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm, PicsForm
 from app.models import User, Post, Message, Notification
 import uuid
 from app.main import bp
@@ -73,7 +73,7 @@ def search():
 @bp.route('/About_Us', methods=['GET', 'POST'])
 @login_required
 def About_Us():
-	form=EmptyForm()
+	form=PicsForm()
 	forms=NewForm()
 	id = current_user.id
 	users = User.query.all()
