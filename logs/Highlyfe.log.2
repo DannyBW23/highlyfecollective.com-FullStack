@@ -1,4 +1,4 @@
-2023-08-11 15:39:26,228 ERROR: Exception on / [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-11 15:44:42,794 ERROR: Exception on / [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -41,8 +41,19 @@ Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 950, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.messages'. Did you forget to specify values ['username']?
-2023-08-11 15:41:10,773 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 15:41:12,267 ERROR: Exception on / [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-11 15:45:02,231 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:47:24,541 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:48:37,245 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:49:11,498 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:49:38,724 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:50:43,324 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:58:54,009 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 15:59:14,685 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 16:01:02,944 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 16:02:03,713 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 16:04:01,298 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 16:09:14,129 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 16:09:19,277 ERROR: Exception on / [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,7 +87,7 @@ Traceback (most recent call last):
     {% block body -%}
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block 'body'
     {% block navbar %}
-  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 42, in block 'navbar'
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 43, in block 'navbar'
     <li><a href="{{ url_for('main.messages') }}">{{ ('Messages') }}{% set new_messages = current_user.new_messages() %} <span id="message_count" class="badge"style="visibility: {% if new_messages %}visible{% else %}hidden{% endif %};">{{ new_messages }}</span></a></li></ul>
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1697, in url_for
     return self.handle_url_build_error(error, endpoint, values)
@@ -84,5 +95,5 @@ Traceback (most recent call last):
     rv = url_adapter.build(  # type: ignore[union-attr]
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 950, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.messages'. Did you forget to specify values ['username']?
-2023-08-11 15:43:30,930 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.messages'. Did you forget to specify values ['recipient']?
+2023-08-11 16:10:08,957 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]

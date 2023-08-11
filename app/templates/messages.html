@@ -52,15 +52,23 @@
                 <span style="color: white; font-size: 14px;">{{ post.author.username }}</span>
             </a>
             <span style="color: white; font-size: 14px;">said {{ moment(post.timestamp).fromNow() }}:</span><br>
-            <span style="color: white; font-size: 14px;">{{ post.body }}</span>
+            <span style="color: white; font-size: 14px;">{{ post.body }}</span> 
+                <form method="get" action="{{ url_for('main.send_message1', recipient=post.author.username) }}" style="display: inline;">
+                  <button type="submit" class="btn btn-primary">
+                    {{ ('Message') }}
+                  </button>
+                </form>
+     
+        
         </div>
     </div>
-    
+
     <hr style="border-top: 2px solid white;">
 
   {% endif %}
 
  {% endfor %}
+ 
 
 
     <nav aria-label="...">
