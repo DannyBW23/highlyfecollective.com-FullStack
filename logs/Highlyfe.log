@@ -30,3 +30,8 @@ Traceback (most recent call last):
     form.validate_on_sumbit==False
 AttributeError: 'EmptyForm' object has no attribute 'validate_on_sumbit'
 2023-08-11 01:53:16,238 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 02:42:26,690 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 02:44:31,608 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 02:46:16,013 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 02:46:30,590 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 02:47:23,194 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
