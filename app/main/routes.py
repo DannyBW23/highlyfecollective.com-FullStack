@@ -1,17 +1,13 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request, jsonify, current_app, g, Response
+from flask import render_template, flash, redirect, url_for, request, jsonify, current_app
 from flask_login import current_user,login_required
-from werkzeug.urls import url_parse
 from werkzeug.utils import secure_filename
 from app import db
 from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm
 from app.models import User, Post, Message, Notification
-from PIL import Image
 import uuid
-import os
 from app.main import bp
 from flask_sqlalchemy import Pagination 
-from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
