@@ -26,6 +26,9 @@ class EditProfileForm(FlaskForm):
 
 
 class EmptyForm(FlaskForm):
+    pics=FileField('pics')
+    pics_1=FileField('pics_1')
+    text_input = TextAreaField(('Bio'),validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
 
 

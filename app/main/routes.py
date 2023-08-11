@@ -15,7 +15,7 @@ from sqlalchemy import or_
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-#e
+
 @bp.before_app_request
 def before_request():
 	if not request.is_secure:
@@ -73,11 +73,63 @@ def search():
         return render_template("search.html", form=form, searched=search_query, posts=posts)
     return redirect(url_for('main.explore'))
 
-@bp.route('/', methods=['GET'])
-@bp.route('/About_Us', methods=['GET'])
+
+@bp.route('/About_Us', methods=['GET', 'POST'])
 @login_required
 def About_Us():
-	return render_template('About_Us.html', title='About Us')
+	form=EmptyForm()
+	id = current_user.id
+	users = User.query.all()
+	name_to_update = User.query.get_or_404(id)
+	if form.validate_on_submit() :
+		text_input = form.text_input.data
+		db.session.commit()
+		for user in users:
+	
+			text_input = form.text_input.data
+			user.text_input = text_input
+			db.session.commit()
+    
+			print(user.text_input)
+		if not text_input:
+			if request.method == 'POST':
+				if 'pics' in request.files:
+					file = request.files['pics']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					print('pic pic_name'+pic_name)
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics = pic_name # else: e
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form)
+				if 'pics_1' in request.files:
+					file = request.files['pics_1']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_1 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form)
+	# elif request.method == 'GET':
+	# 	text_input = name_to_update.text_input 
+	# 	form.text_input.data=text_input
+	return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form)
+	# return render_template('About_Us.html', title='About Us')
 
 @bp.route('/feed', methods=['GET'])
 @login_required

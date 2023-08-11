@@ -32,11 +32,12 @@ color: white;
     }
 
 </style>
-{% for follower_user in followers %}
         </div class="profile-link">
-        <p style="text-align: left;"><a href="{{ url_for('main.user', username=user.username) }}"style="color:white"> <span style="font-size: 28px;">Followers: {{ user.followers.count() }}</span></a>
+        <p style="text-align: left;"><a href="{{ url_for('main.user', username=user.username) }}"style="color:white"> <span style="font-size: 28px; font-family:SF Pro Display;">Followers: {{ user.followers.count() }}</span></a>
           </div>
-            <a href="{{ url_for('main.user', username=follower_user.username) }}"style="font-size: 28px;color:white; display: block">{{ follower_user.username }}</a>
+          {% for follower_user in followers %} 
+            <a href="{{ url_for('main.user', username=follower_user.username) }}"style="font-size: 28px;color:white; display: block;font-family:SF Pro Display;">{{ follower_user.username }}</a>
+           
             {% if follower_user.profile_pic %}
         <div class="profile-picture">
             <img src="https://profilepic23.s3.amazonaws.com/{{ follower_user.profile_pic }}" width="32" height="32">

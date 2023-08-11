@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
 {% block app_content %}
+
 <style>
     .post-container {
         margin-bottom: 20px;
@@ -35,10 +35,10 @@
         color: white;
     }
 </style>
-    <h1>{{ ('Messages') }}</h1>
+    <h1 style="font-size:40px;font-family:SF Pro Display;">{{ ('Messages') }}</h1>
     {% for post in messages %}
         
-<div class="post-container">
+<div class="post-container"class="row" style="font-size:12px;font-family:SF Pro Display;">
     {% if post.author %}
         <div class="avatar-container">
             {% if post.author.profile_pic %}

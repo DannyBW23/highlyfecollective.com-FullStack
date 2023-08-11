@@ -3,7 +3,8 @@
     <style>
         body {
             background-color: rgba(17, 17, 184, 0.748);
-            color: white; }
+            color: white;
+         }
             .col-md-4 {
             padding:0px;
     }
@@ -12,16 +13,19 @@
     width: 300px;
     inline-size: 200px; 
     overflow-wrap: break-word;
+    font-family:SF Pro Display;
   }
   h1 {
       font-size: 36px;
       font-weight: bold;
       margin-top: .005px;
+      font-family:SF Pro Display;
     }
     .post-container{
     margin-top: 10px;
     overflow-wrap: break-word;
     inline-size: 420px;
+    font-family:SF Pro Display;
 }
 .post-container hr {
         width:100%;
@@ -62,10 +66,10 @@
             
 	    
         
-            {% if user.last_seen %}<span style="margin-left:1px">Last seen on: {{ moment(user.last_seen).format('LLL') }}</span>{% endif %}
+            {% if user.last_seen %}<span style="margin-left:1px;font-family:SF Pro Display;">Last seen on: {{ moment(user.last_seen).format('LLL') }}</span>{% endif %}
             <p>
-            <span style="margin-left:1px"><a href="{{ url_for('main.followers', username=user.username) }}"style="font-size: 18px; color:white">Followers: <span style= "font-size: 18px;">{{ user.followers.count() }}</span></a></span>
-            <span style="margin-left:1px"><a href="{{ url_for('main.following', username=user.username) }}"style="font-size:18px;color:white">Following: <span style="font-size: 18px;">{{ user.followed.count() }}</span></a></span>
+            <span style="margin-left:1px"><a href="{{ url_for('main.followers', username=user.username) }}"style="font-family:SF Pro Display;font-size: 18px; color:white">Followers: <span style= "font-size: 18px;">{{ user.followers.count() }}</span></a></span>
+            <span style="margin-left:1px"><a href="{{ url_for('main.following', username=user.username) }}"style="font-family:SF Pro Display;font-size:18px;color:white">Following: <span style="font-size: 18px;">{{ user.followed.count() }}</span></a></span>
                 </a>
             </p>
             {% if user == current_user %}
