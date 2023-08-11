@@ -3,11 +3,14 @@
 
 <style>
     .post-container {
-        margin-bottom: 20px;
+        margin-bottom: 8px;
+        padding: 0;
+        margin-top:0px;
     }
 
     .post-container + hr {
-        margin-top: 10px;
+        margin-top: 0px;
+        padding: 0;
     }
 
     .avatar-container {
@@ -17,16 +20,22 @@
         overflow: hidden;
         float: left; 
         margin-right: 10px; 
+        padding: 0;
     }
 
     .avatar-container img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        margin-top:0px;
+        padding: 0;
     }
 
     .post-content {
-        overflow: hidden; 
+        overflow: hidden;
+        padding: 0px;
+        margin-top:0px; 
+        padding: 0;
     }
 
 
@@ -38,7 +47,6 @@
     <h1 style="font-size:40px;font-family:SF Pro Display;">{{ ('Messages') }}</h1>
     {% for post in messages %}
         
-<div class="post-container"class="row" style="font-size:12px;font-family:SF Pro Display;">
     {% if post.author %}
         <div class="avatar-container">
             {% if post.author.profile_pic %}
@@ -47,7 +55,7 @@
                 <img src="{{ post.author.avatar(75) }}" alt="Avatar">
             {% endif %}
         </div>
-        <div class="post-content">
+        <div class="post-container"class="row" style="font-size:12px;font-family:SF Pro Display;">
             <a href="{{ url_for('main.user', username=post.author.username) }}" style="color: white;">
                 <span style="color: white; font-size: 14px;">{{ post.author.username }}</span>
             </a>
@@ -60,10 +68,10 @@
                 </form>
      
         
-        </div>
+   
     </div>
 
-    <hr style="border-top: 2px solid white;">
+    <hr style="margin-top:0px;border-top: 2px solid white;">
 
   {% endif %}
 

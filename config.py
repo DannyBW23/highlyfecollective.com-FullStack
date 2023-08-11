@@ -11,4 +11,3 @@ class Config(object):
 	MAILGUN_KEY=os.environ.get('MAILGUN_KEY')
 	MAILGUN_DOMAIN=os.environ.get('MAILGUN_DOMAIN')
 	POSTS_PER_PAGE = 50
-#w
