@@ -174,7 +174,6 @@ def delete_post(id):
 			flash("Whoops! There was a problem deleting post, try again...")
 			posts = Post.query.order_by(Post.timestamp.desc()).all()
 			return redirect(request.referrer or url_for('main.explore'))
-                             #test #test
 @bp.route('/user/<username>')
 @login_required
 def user(username):
@@ -369,14 +368,14 @@ def send_message(recipient):
 @bp.route('/messages')
 @login_required
 def messages():
-    current_user.last_message_read_time = datetime.utcnow()
-    current_user.add_notification('unread_message_count', 0)
-    db.session.commit()
-    page = request.args.get('page', 1, type=int)
-    messages = current_user.messages_received.order_by(Message.timestamp.desc()).paginate(page=page, per_page=current_app.config['POSTS_PER_PAGE'],error_out=False)
-    next_url = url_for('main.messages', page=messages.next_num)if messages.has_next else None
-    prev_url = url_for('main.messages', page=messages.prev_num)if messages.has_prev else None
-    return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url)
+	current_user.last_message_read_time = datetime.utcnow()
+	current_user.add_notification('unread_message_count', 0)
+	db.session.commit()
+	page = request.args.get('page', 1, type=int)
+	messages = current_user.messages_received.order_by(Message.timestamp.desc()).paginate(page=page, per_page=current_app.config['POSTS_PER_PAGE'],error_out=False)
+	next_url = url_for('main.messages',page=messages.next_num)if messages.has_next else None
+	prev_url = url_for('main.messages',page=messages.prev_num)if messages.has_prev else None
+	return render_template('messages.html', messages=messages.items,next_url=next_url, prev_url=prev_url, user=user)
 @bp.route('/notifications')
 @login_required
 def notifications():

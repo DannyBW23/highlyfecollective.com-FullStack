@@ -28,7 +28,8 @@
         {% if current_user.is_anonymous %}
                 <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 26px;">Highlyfe</a>
                     {% else  %}
-        <div class="navbar-header"> 
+                    <div class="container">
+      <div class="navbar-header"> 
     <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 26px;">Highlyfe</a>
     </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
