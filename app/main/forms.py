@@ -27,6 +27,7 @@ class EditProfileForm(FlaskForm):
 class PicsForm(FlaskForm):
     pics=FileField('pics')
     pics_1=FileField('pics_1')
+    submit = SubmitField('Submit')
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 class NewForm(FlaskForm):
