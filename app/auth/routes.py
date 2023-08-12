@@ -43,6 +43,8 @@ def register():
 		if existing_user:
 				flash('Username is already taken. Please choose a different one.')
 				return redirect(url_for('auth.register'))
+		
+		user.username = form.username.data
 		user = User(username=form.username.data, email=form.email.data)
 		user.set_password(form.password.data)
 		db.session.add(user)

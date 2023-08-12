@@ -22,3 +22,7 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.edit_profile'. Did you forget to specify values ['username']?
 2023-08-11 19:14:01,530 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:46:25,686 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:52:05,396 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:59:21,454 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 02:03:28,623 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
