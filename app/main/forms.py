@@ -4,7 +4,7 @@ from flask_wtf.file import FileField
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Length
 from app.models import User
-from sqlalchemy import func
+
 
 class EditProfileForm(FlaskForm):
 	username = StringField(('Username'), validators=[DataRequired()])
@@ -27,10 +27,16 @@ class EditProfileForm(FlaskForm):
 class PicsForm(FlaskForm):
     pics=FileField('pics')
     pics_1=FileField('pics_1')
+    pics_2=FileField('pics_2')
     submit = SubmitField('Submit')
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 class NewForm(FlaskForm):
+    text_input5 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input4 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input3 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input2 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input1 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
     text_input = TextAreaField(('Bio'),validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
 class PostForm(FlaskForm):

@@ -81,16 +81,44 @@ def About_Us():
 
 	if forms.validate_on_submit() :
 		text_input = forms.text_input.data
-
+		text_input1 = forms.text_input1.data
+		text_input2 = forms.text_input2.data
+		text_input3 = forms.text_input3.data
+		text_input4 = forms.text_input4.data
+		text_input5 = forms.text_input5.data
 		db.session.commit()
 		if text_input:
 			for user in users:
 				text_input = forms.text_input.data
-				print(text_input)
 				user.text_input = text_input
 				db.session.commit()
+		if text_input1:
+			for user in users:
+				text_input1 = forms.text_input1.data
+				user.text_input1 = text_input1
+				db.session.commit()
+		if text_input2:
+			for user in users:
+				text_input2 = forms.text_input2.data
+				user.text_input2 = text_input2
+				db.session.commit()
+		if text_input3:
+			for user in users:
+				text_input3 = forms.text_input3.data
+				user.text_input3 = text_input3
+				db.session.commit()
+		if text_input4:
+			for user in users:
+				text_input4 = forms.text_input4.data
+				user.text_input4= text_input4
+				db.session.commit()
+		if text_input5:
+			for user in users:
+				text_input5 = forms.text_input5.data
+				user.text_input5 = text_input5
+				db.session.commit()
 	if form.validate_on_submit() :
-		if not text_input:
+		if not text_input and not text_input1 and not text_input2 and not text_input3 and not text_input4 and not text_input5:
 			if request.method == 'POST':
 				if 'pics' in request.files:
 					file = request.files['pics']
@@ -109,7 +137,23 @@ def About_Us():
 						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form)
 				if 'pics_1' in request.files:
 					file = request.files['pics_1']
-					print(file)
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_1 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pics_2' in request.files:
+					file = request.files['pics_2']
 					pic_filename = secure_filename(file.filename)
 					print(pic_filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
@@ -117,15 +161,15 @@ def About_Us():
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
-						name_to_update.pics_1 = pic_name 
-						print(name_to_update.pics_1)
+						name_to_update.pics_2 = pic_name 
+						print(name_to_update.pics_2)
 						db.session.commit()
 						return redirect(url_for('main.About_Us', form=form))
 					except ClientError as e:
 						print(f"Error uploading file to AWS S3: {e}")
 						flash("Error!  Looks like there was a problem...try again!")
 						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
-
+  
 	return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
 
 
