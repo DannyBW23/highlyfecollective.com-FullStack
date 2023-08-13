@@ -28,10 +28,20 @@ class PicsForm(FlaskForm):
     pics=FileField('pics')
     pics_1=FileField('pics_1')
     pics_2=FileField('pics_2')
+    pics_3=FileField('pics_3')
+    pics_4=FileField('pics_4')
+    pics_5=FileField('pics_5')
+
     submit = SubmitField('Submit')
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 class NewForm(FlaskForm):
+    text_input11 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)])   
+    text_input10 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input9 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input8 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input7 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
+    text_input6 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
     text_input5 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
     text_input4 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
     text_input3 = TextAreaField(('Bio'),validators=[Length(min=0, max=140)]) 
