@@ -51,44 +51,6 @@
         object-fit: cover;
 
     }
-    .profile-picture3 {
-        width: 150px;
-        height: 150px;
-        overflow-wrap: break-word;
-        margin-left: 0px;
-
-    }
-    .profile-picture3 img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-    }    .profile-picture4 {
-        width: 150px;
-        height: 150px;
-        overflow-wrap: break-word;
-        margin-left: 0px;
-
-    }
-    .profile-picture4 img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-    }
-   .profile-picture5 {
-        width: 150px;
-        height: 150px;
-        overflow-wrap: break-word;
-        margin-left: 0px;
-
-    }
-    .profile-picture5 img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-    }
     .text-input {
         color: white;
         font-size: 22px;
@@ -96,7 +58,7 @@
     }
 
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=.6">     
+<meta name="viewport" content="width=device-width, initial-scale=.">     
 <h1>You Should've Been Here!</h1>
 
 <div class="set-container">
@@ -190,97 +152,7 @@
     {% endif %}
 </div>
 
-<div class="set-container">
 
-    {% if current_user.id == 1 %}
-    <div class="col-md-4">
-        <div class="profile-picture3">
-        <form method="post">
-            {{ forms.text_input6() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-           <p class="text-input">{{ current_user.text_input6 }}</p>
-        </form>
-        <div class="profile-picture3">
-            <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_3 }}" width="128">
-        </div>
-        <div class="profile-picture3"> 
-        <form method="post" enctype="multipart/form-data">
-            {{ form.pics_3 }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-        </form>
-        <form method="post">
-            {{ forms.text_input7() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color: white; font-size: 22px;">{{ current_user.text_input7 }}</p>
-    </div>
-    </div>
-</div>
-    {% endif %}
-
-
-
-    {% if current_user.id == 1 %}
-    <div class="col-md-4">
-        <div class="profile-picture4">
-        <form method="post">
-            {{ forms.text_input8() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-           <p class="text-input">{{ current_user.text_input8 }}</p>
-        </form>
-        <div class="profile-picture4">
-            <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_4 }}" width="128">
-        </div>
-        <div class="profile-picture4"> 
-        <form method="post" enctype="multipart/form-data">
-            {{ form.pics_4 }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-        </form>
-        <form method="post">
-            {{ forms.text_input9() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color: white; font-size: 22px;">{{ current_user.text_input9 }}</p>
-    </div>
-    </div>
-</div>
-    {% endif %}
-
-    {% if current_user.id == 1 %}
-    <div class="col-md-4">
-        <div class="profile-picture5">
-        <form method="post">
-            {{ forms.text_input10() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-           <p class="text-input">{{ current_user.text_input10 }}</p>
-        </form>
-        <div class="profile-picture5">
-            <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_5 }}" width="128">
-        </div>
-        <div class="profile-picture5"> 
-        <form method="post" enctype="multipart/form-data">
-            {{ form.pics_5 }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-        </form>
-        <form method="post">
-            {{ forms.text_input11() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color: white; font-size: 22px;">{{ current_user.text_input11 }}</p>
-    </div>
-    </div>
-</div>
-    {% endif %}
-</div>
 
 
 
@@ -344,73 +216,6 @@
         {% if current_user.text_input5 %}
         <div class="profile-picture2">
             <p style="color:white;font-size:28px;">{{ current_user.text_input5 }}</p>
-        </div>
-        {% endif %}
-    </div>
-
-
-</div>
-{% endif %}
-
-{% if current_user.id != 1 %}
-<div class="set-container">
-    <div class="col-md-4">
-        {% if current_user.text_input6 %}
-        <div class="profile_picture3">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input6 }}</p>
-        </div>
-        {% endif %}
-        {% for user in users %}
-            {% if user.pics_3 %}
-            <div class="profile-picture3">
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics_3 }}" width="128">
-            </div>
-            {% endif %}
-        {% endfor %}
-        {% if current_user.text_input7 %}
-        <div class="profile-picture3">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input7 }}</p>
-        </div>
-        {% endif %}
-    </div>
-
-
-    <div class="col-md-4">
-        {% if current_user.text_input8 %}
-        <div class="profile_picture4">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input8 }}</p>
-        </div>
-        {% endif %}
-        {% for user in users %}
-            {% if user.pics_4 %}
-            <div class="profile-picture4">
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics_4 }}" width="128">
-            </div>
-            {% endif %}
-        {% endfor %}
-        {% if current_user.text_input9 %}
-        <div class="profile-picture4">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input9 }}</p>
-        </div>
-        {% endif %}
-    </div>
-
-    <div class="col-md-4">
-        {% if current_user.text_input10 %}
-        <div class="profile_picture5">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input10 }}</p>
-        </div>
-        {% endif %}
-        {% for user in users %}
-            {% if user.pics_5 %}
-            <div class="profile-picture2">
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics_5 }}" width="128">
-            </div>
-            {% endif %}
-        {% endfor %}
-        {% if current_user.text_input11 %}
-        <div class="profile-picture5">
-            <p style="color:white;font-size:28px;">{{ current_user.text_input11 }}</p>
         </div>
         {% endif %}
     </div>

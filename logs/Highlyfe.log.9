@@ -1,42 +1,4 @@
-2023-08-11 18:56:05,296 ERROR: Exception on /edit_profile/danny [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 1537, in __getattr__
-    return getattr(self.comparator, key)
-AttributeError: 'Comparator' object has no attribute 'first'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 195, in edit_profile
-    if form.validate_on_submit():
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/wtforms/form.py", line 329, in validate
-    return super().validate(extra)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/wtforms/form.py", line 146, in validate
-    if not field.validate(self, extra):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/wtforms/fields/core.py", line 242, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/wtforms/fields/core.py", line 262, in _run_validation_chain
-    validator(form, self)
-  File "/Users/danielweir/highlyfe3/app/main/forms.py", line 28, in validate_username
-    existing_user = User.query.filter(func.lower(User.username)) == func.lower(username.data).first()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 1539, in __getattr__
-    raise AttributeError(
-AttributeError: Neither 'Function' object nor 'Comparator' object has an attribute 'first'
-2023-08-11 18:59:19,884 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:00:29,202 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:01:04,767 ERROR: Exception on /edit_profile/clem [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-11 19:04:24,843 ERROR: Exception on /edit_profile/danny [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
     self.dialect.do_execute(
@@ -107,7 +69,6 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
 [SQL: UPDATE user SET username=? WHERE user.id = ?]
-[parameters: ('Clem', 7)]
+[parameters: ('Danny', 7)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-08-11 19:01:25,966 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:04:08,975 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-11 19:06:12,706 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]

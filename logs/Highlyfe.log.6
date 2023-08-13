@@ -1,97 +1,4 @@
-2023-08-11 19:07:00,561 ERROR: Exception on /edit_profile/clem [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 198, in edit_profile
-    db.session.commit()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 552, in commit
-    return self._proxied.commit()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1920, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1236, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1211, in _prepare_impl
-    self.session.flush()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4163, in flush
-    self._flush(objects)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4299, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 4259, in _flush
-    flush_context.execute()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
-    rec.execute(self)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
-    _emit_update_statements(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
-    c = connection.execute(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
-    return meth(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=? WHERE user.id = ?]
-[parameters: ('Clem', 3)]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-08-11 19:08:56,505 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:09:12,486 ERROR: Exception on /edit_profile/clem [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
-Traceback (most recent call last):
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 195, in edit_profile
-    if form.validate_on_submit():
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-TypeError: validate() got an unexpected keyword argument 'extra_validators'
-2023-08-11 19:11:09,597 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:13:01,075 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-11 19:13:07,025 ERROR: Exception on /edit_profile/clem [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-11 19:13:16,274 ERROR: Exception on /edit_profile/clem [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -114,3 +21,89 @@ Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 950, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.edit_profile'. Did you forget to specify values ['username']?
+2023-08-11 19:14:01,530 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:46:25,686 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:52:05,396 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 01:59:21,454 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 02:03:28,623 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:42:01,759 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:42:08,534 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:47:55,713 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:48:59,157 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:50:55,125 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:52:18,367 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:54:11,635 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 11:55:14,090 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:06:16,972 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:07:17,327 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:10:24,974 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:11:03,442 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:11:50,532 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:14:25,688 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:17:31,687 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:18:43,432 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:19:15,119 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:20:15,026 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:20:54,953 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:21:47,766 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 12:22:21,915 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:11:49,175 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:12:11,242 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:15:17,872 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:16:30,347 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:19:28,620 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:20:14,577 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:21:04,286 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:21:43,864 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:21:46,678 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 134, in About_Us
+    return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 120, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-08-12 13:22:44,307 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:23:54,716 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:24:17,355 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:25:05,356 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:25:27,859 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:28:37,036 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:29:03,249 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:29:30,602 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:30:17,437 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:30:33,527 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:32:13,707 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:33:15,403 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:33:36,194 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:34:51,812 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:35:03,853 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:35:16,075 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:35:27,652 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:35:52,177 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:36:27,982 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:38:25,649 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-12 13:38:46,981 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]

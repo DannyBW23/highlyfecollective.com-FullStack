@@ -220,15 +220,15 @@ def About_Us():
 						print(f"Error uploading file to AWS S3: {e}")
 						flash("Error!  Looks like there was a problem...try again!")
 						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
-				if 'pics_3' in request.files:
-					file = request.files['pics_3']
+				if 'pics_4' in request.files:
+					file = request.files['pics_4']
 					pic_filename = secure_filename(file.filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
 					s3_client = boto3.client('s3', region_name='us-east-1')
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
-						name_to_update.pics_3 = pic_name 
+						name_to_update.pics_4 = pic_name 
 						db.session.commit()
 						return redirect(url_for('main.About_Us', form=form))
 					except ClientError as e:
