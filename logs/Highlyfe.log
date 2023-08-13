@@ -95,3 +95,8 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You p
 2023-08-13 13:58:45,233 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-13 14:00:09,456 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
 2023-08-13 14:00:35,454 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-13 14:31:49,131 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-13 14:32:20,822 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-13 14:32:33,328 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-13 14:32:44,204 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-13 14:33:24,249 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
