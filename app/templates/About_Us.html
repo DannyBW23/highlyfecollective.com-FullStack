@@ -15,10 +15,11 @@
         width: 150px;
         height: 150px;
         word-wrap: break-word;
-        margin-right:50px;
-        margin-bottom:80px;
+      
     border-collapse: collapse;
     display: inline-block;
+    margin: 20px; 
+
     }
     .profile-picture img, .pro img, .prop img {
         width: 100%;
@@ -45,7 +46,7 @@
 
 <h1>You Should've Been Here!</h1>
 {% if current_user.id == 1 %}
-<meta name="viewport" content="width=device-width, initial-scale=.7">  
+
 
                 <div class="profile-picture">
                     <form method="post">
@@ -271,7 +272,19 @@
 {% endif %}
 </div>
 
-
+<div class="profile-picture">
+    {% if current_user.text_input10 %}
+        <p style="color:white;font-size:28px;">{{ current_user.text_input10 }}</p>
+    {% endif %}
+    {% for user in users %}
+        {% if user.pics_5 %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics_5 }}" width="128">
+        {% endif %}
+    {% endfor %}
+    {% if current_user.text_input11 %}
+        <p style="color:white;font-size:28px;">{{ current_user.text_input11 }}</p>
+    {% endif %}
+    </div>
 
 {% endif %}
 
