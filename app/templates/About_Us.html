@@ -272,19 +272,6 @@
 {% endif %}
 </div>
 
-<div class="profile-picture">
-    {% if current_user.text_input10 %}
-        <p style="color:white;font-size:28px;">{{ current_user.text_input10 }}</p>
-    {% endif %}
-    {% for user in users %}
-        {% if user.pics_5 %}
-            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics_5 }}" width="128">
-        {% endif %}
-    {% endfor %}
-    {% if current_user.text_input11 %}
-        <p style="color:white;font-size:28px;">{{ current_user.text_input11 }}</p>
-    {% endif %}
-    </div>
 
 {% endif %}
 
