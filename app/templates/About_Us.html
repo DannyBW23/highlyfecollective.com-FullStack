@@ -56,7 +56,14 @@
         font-size: 22px;
  
     }
+    .pro {
+        margin-bottom:5px;
+        width: 150px;
+        height: 150px;
+        overflow-wrap: break-word;
+        margin-left: 0px;
 
+    }
 </style>
   
 <h1>You Should've Been Here!</h1>
@@ -195,8 +202,8 @@
 {% if current_user.id != 1 %}
 <div class="set-container">
     <div class="col-md-4">
-        {% if current_user.text_input2 %}
-        <div class="profile_picture_1">
+        {% if current_user.text_input1 %}
+        <div class="pro">
             <p style="color:white;font-size:28px;">{{ current_user.text_input1 }}</p>
         </div>
         {% endif %}
@@ -217,13 +224,13 @@
 
     <div class="col-md-4">
         {% if current_user.text_input2 %}
-        <div class="profile_picture">
+        <div class="pro">
             <p style="color:white;font-size:28px;">{{ current_user.text_input2 }}</p>
         </div>
         {% endif %}
         {% for user in users %}
             {% if user.pics %}
-            <div class="profile-picture">
+            <div class="profile-picture_1">
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
             </div>
             {% endif %}
@@ -237,7 +244,7 @@
 
     <div class="col-md-4">
         {% if current_user.text_input4 %}
-        <div class="profile_picture2">
+        <div class="pro">
             <p style="color:white;font-size:28px;">{{ current_user.text_input4 }}</p>
         </div>
         {% endif %}
@@ -256,7 +263,7 @@
     </div>
     <div class="col-md-4">
         {% if current_user.text_input6 %}
-        <div class="profile_picture2">
+        <div class="pro">
             <p style="color:white;font-size:28px;">{{ current_user.text_input6 }}</p>
         </div>
         {% endif %}
