@@ -25,10 +25,13 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-collapse: separate;
+        border-spacing: 0 15px;
     }
     .text-input {
         color: white;
         font-size: 22px;
+
     }
     .prop {
         width: 150px;
@@ -37,19 +40,14 @@
         max-width: 150px;
         word-wrap: break-word;
     }
-    table {
-  border-collapse: separate;
-  border-spacing: 0 15px;
-}
+
 
 </style>
 
 <h1>You Should've Been Here!</h1>
 {% if current_user.id == 1 %}
 <meta name="viewport" content="width=device-width, initial-scale=.7">  
-    <table>
-        <tr>
-            <td>
+
                 <div class="profile-picture">
                     <form method="post">
                         {{ forms.text_input1() }}
@@ -70,9 +68,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input }}</p>
                 </div>
-            </td>
-            
-            <td>
+       
                 
                 <div class="profile-picture">
                     <form method="post">
@@ -94,10 +90,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input3 }}</p>
                 </div>
-            </td>
-            
-            <td>
-              
+         
                 <div class="profile-picture">
                     <form method="post">
                         {{ forms.text_input4() }}
@@ -118,9 +111,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input5 }}</p>
                 </div>
-            </td>
-            
-            <td>
+       
 
                 <div class="profile-picture">
                     <form method="post">
@@ -142,9 +133,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input7 }}</p>
                 </div>
-            </td>
-            
-            <td>
+      
       
                 <div class="profile-picture">
                     <form method="post">
@@ -166,9 +155,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input9 }}</p>
                 </div>
-            </td>
-            
-            <td>
+      
 
                 <div class="profile-picture">
                     <form method="post">
@@ -179,7 +166,7 @@
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input10 }}</p>
                     <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_5 }}" width="128">
                     <form method="post" enctype="multipart/form-data">
-                        {{ form.pics_2 }}
+                        {{ form.pics_5 }}
                         {{ form.csrf_token }}
                         {{ form.submit }}
                     </form>
@@ -190,14 +177,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input11 }}</p>
                 </div>
-            </td>
-
-
-        </tr>
-        <tr>
-            
-        </tr>
-    </table>
+       
 
  
        
@@ -205,13 +185,9 @@
 {% endif %}
 
      
-         
-
-
+        
 {% if current_user.id != 1 %}
-<table>
-    <tr>
-        <td>
+
             <div class="profile-picture">
         {% if current_user.text_input1 %}
             <p style="color:white;font-size:28px;">{{ current_user.text_input }}</p>
@@ -225,9 +201,7 @@
             <p style="color:white;font-size:28px;">{{ current_user.text_input1 }}</p>
         {% endif %}
     </div>
-</td>
 
-<td>
     <div class="profile-picture">
 {% if current_user.text_input2 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input2 }}</p>
@@ -241,9 +215,7 @@
     <p style="color:white;font-size:28px;">{{ current_user.text_input3 }}</p>
 {% endif %}
 </div>
-</td>
 
-<td>
     <div class="profile-picture">
 {% if current_user.text_input4 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input4 }}</p>
@@ -257,9 +229,7 @@
     <p style="color:white;font-size:28px;">{{ current_user.text_input5 }}</p>
 {% endif %}
 </div>
-</td>
 
-<td>
     <div class="profile-picture">
 {% if current_user.text_input6 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input6 }}</p>
@@ -273,9 +243,7 @@
     <p style="color:white;font-size:28px;">{{ current_user.text_input7 }}</p>
 {% endif %}
 </div>
-</td>
 
-<td>
     <div class="profile-picture">
 {% if current_user.text_input8 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input8 }}</p>
@@ -289,8 +257,7 @@
     <p style="color:white;font-size:28px;">{{ current_user.text_input9 }}</p>
 {% endif %}
 </div>
-</td>
-<td>
+
     <div class="profile-picture">
 {% if current_user.text_input10 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input10 }}</p>
@@ -304,9 +271,7 @@
     <p style="color:white;font-size:28px;">{{ current_user.text_input11 }}</p>
 {% endif %}
 </div>
-</td>
-</tr>
-</table>
+
 
 
 {% endif %}
