@@ -188,8 +188,9 @@
         
 {% if current_user.id != 1 %}
 
-            <div class="profile-picture">
+       
         {% if current_user.text_input %}
+        <div class="profile-picture">
             <p style="color:white;font-size:28px;">{{ current_user.text_input }}</p>
         {% endif %}
         {% for user in users %}
@@ -199,11 +200,13 @@
         {% endfor %}
         {% if current_user.text_input1 %}
             <p style="color:white;font-size:28px;">{{ current_user.text_input1 }}</p>
-        {% endif %}
-    </div>
+     </div>
+            {% endif %}
 
-    <div class="profile-picture">
+
+ 
 {% if current_user.text_input2 %}
+<div class="profile-picture">
     <p style="color:white;font-size:28px;">{{ current_user.text_input2 }}</p>
 {% endif %}
 {% for user in users %}
@@ -213,11 +216,13 @@
 {% endfor %}
 {% if current_user.text_input3 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input3 }}</p>
-{% endif %}
 </div>
+    {% endif %}
 
-    <div class="profile-picture">
+
+    
 {% if current_user.text_input4 %}
+<div class="profile-picture">
     <p style="color:white;font-size:28px;">{{ current_user.text_input4 }}</p>
 {% endif %}
 {% for user in users %}
@@ -227,11 +232,13 @@
 {% endfor %}
 {% if current_user.text_input5 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input5 }}</p>
-{% endif %}
 </div>
+    {% endif %}
 
-    <div class="profile-picture">
+
+
 {% if current_user.text_input6 %}
+<div class="profile-picture">
     <p style="color:white;font-size:28px;">{{ current_user.text_input6 }}</p>
 {% endif %}
 {% for user in users %}
@@ -241,11 +248,13 @@
 {% endfor %}
 {% if current_user.text_input7 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input7 }}</p>
-{% endif %}
 </div>
+    {% endif %}
 
-    <div class="profile-picture">
+
+    
 {% if current_user.text_input8 %}
+<div class="profile-picture">
     <p style="color:white;font-size:28px;">{{ current_user.text_input8 }}</p>
 {% endif %}
 {% for user in users %}
@@ -255,8 +264,9 @@
 {% endfor %}
 {% if current_user.text_input9 %}
     <p style="color:white;font-size:28px;">{{ current_user.text_input9 }}</p>
-{% endif %}
 </div>
+    {% endif %}
+
 
     
 {% if current_user.text_input10 %}
