@@ -42,9 +42,8 @@ def register():
 		existing_user = User.query.filter(func.lower(User.username) == func.lower(form.username.data)).first()
 		if existing_user:
 				flash('Username is already taken. Please choose a different one.')
-				return redirect(url_for('auth.register'))
-		
-		user.username = form.username.data
+				return redirect(url_for('main.auth.register'))
+
 		user = User(username=form.username.data, email=form.email.data)
 		user.set_password(form.password.data)
 		db.session.add(user)
@@ -52,7 +51,6 @@ def register():
 		flash(('Congratulations, you are now a registered user!'))
 		return redirect(url_for('auth.login'))
 	return render_template('auth/register.html', title=('Register'),form=form)
-
 
 @bp.route('/reset_password_request', methods=['GET', 'POST'])
 def reset_password_request():

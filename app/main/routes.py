@@ -64,6 +64,7 @@ def studio():
 				texts_input = forms.texts_input.data
 				user.texts_input = texts_input
 				db.session.commit()
+
 		if texts_input1:
 			for user in users:
 				texts_input1 = forms.texts_input1.data
