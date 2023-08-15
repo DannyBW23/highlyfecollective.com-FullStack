@@ -42,10 +42,73 @@ def register():
 		existing_user = User.query.filter(func.lower(User.username) == func.lower(form.username.data)).first()
 		if existing_user:
 				flash('Username is already taken. Please choose a different one.')
-				return redirect(url_for('main.auth.register'))
+				return redirect(url_for('auth.register'))
 
 		user = User(username=form.username.data, email=form.email.data)
-		user.set_password(form.password.data)
+		user.set_password(form.password.data)	
+		user_with_id_1 = User.query.get(1)
+
+
+		user.text_input = user_with_id_1.text_input		
+		user.text_input1 = user_with_id_1.text_input1
+		user.text_input2 = user_with_id_1.text_input2
+		user.text_input3 = user_with_id_1.text_input3		
+		user.text_input4 = user_with_id_1.text_input4
+		user.text_input5 = user_with_id_1.text_input5
+		user.text_input6 = user_with_id_1.text_input6
+		user.text_input7 = user_with_id_1.text_input7
+		user.text_input8 = user_with_id_1.text_input8		
+		user.text_input9 = user_with_id_1.text_input9
+		user.text_input10 = user_with_id_1.text_input10
+		user.text_input11 = user_with_id_1.text_input11
+		user.text_input12 = user_with_id_1.text_input12
+		user.text_input13 = user_with_id_1.text_input13		
+		user.text_input14 = user_with_id_1.text_input14
+		user.text_input15 = user_with_id_1.text_input15
+		user.text_input16 = user_with_id_1.text_input16
+		user.text_input17 = user_with_id_1.text_input17
+		user.text_input18 = user_with_id_1.text_input18		
+		user.text_input19 = user_with_id_1.text_input19
+		user.texts_input = user_with_id_1.texts_input		
+		user.texts_input1 = user_with_id_1.texts_input1
+		user.texts_input2 = user_with_id_1.texts_input2
+		user.texts_input3 = user_with_id_1.texts_input3		
+		user.texts_input4 = user_with_id_1.texts_input4
+		user.texts_input5 = user_with_id_1.texts_input5
+		user.texts_input6 = user_with_id_1.texts_input6
+		user.texts_input7 = user_with_id_1.texts_input7
+		user.texts_input8 = user_with_id_1.texts_input8		
+		user.texts_input9 = user_with_id_1.texts_input9
+		user.texts_input10 = user_with_id_1.texts_input10
+		user.texts_input11 = user_with_id_1.texts_input11
+		user.texts_input12 = user_with_id_1.texts_input12
+		user.texts_input13 = user_with_id_1.texts_input13		
+		user.texts_input14 = user_with_id_1.texts_input14
+		user.texts_input15 = user_with_id_1.texts_input15
+		user.texts_input16 = user_with_id_1.texts_input16
+		user.texts_input17 = user_with_id_1.texts_input17
+		user.texts_input18 = user_with_id_1.texts_input18		
+		user.texts_input19 = user_with_id_1.texts_input19
+		user.tuxts_input = user_with_id_1.tuxts_input	
+		user.tuxts_input1 = user_with_id_1.tuxts_input1
+		user.tuxts_input2 = user_with_id_1.tuxts_input2
+		user.tuxts_input3 = user_with_id_1.tuxts_input3		
+		user.tuxts_input4 = user_with_id_1.tuxts_input4
+		user.tuxts_input5 = user_with_id_1.tuxts_input5
+		user.tuxts_input6 = user_with_id_1.tuxts_input6
+		user.tuxts_input7 = user_with_id_1.tuxts_input7
+		user.tuxts_input8 = user_with_id_1.tuxts_input8		
+		user.tuxts_input9 = user_with_id_1.tuxts_input9
+		user.tuxts_input10 = user_with_id_1.tuxts_input10
+		user.tuxts_input11 = user_with_id_1.tuxts_input11
+		user.tuxts_input12 = user_with_id_1.tuxts_input12
+		user.tuxts_input13 = user_with_id_1.tuxts_input13		
+		user.tuxts_input14 = user_with_id_1.tuxts_input14
+		user.tuxts_input15 = user_with_id_1.tuxts_input15
+		user.tuxts_input16 = user_with_id_1.tuxts_input16
+		user.tuxts_input17 = user_with_id_1.tuxts_input17
+		user.tuxts_input18 = user_with_id_1.tuxts_input18		
+		user.tuxts_input19 = user_with_id_1.tuxts_input19
 		db.session.add(user)
 		db.session.commit()
 		flash(('Congratulations, you are now a registered user!'))

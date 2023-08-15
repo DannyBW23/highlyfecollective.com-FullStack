@@ -1,27 +1,6 @@
-2023-08-14 01:07:46,362 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:07:57,403 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:10:09,804 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:10:30,201 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:10:49,967 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:11:55,751 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:12:13,798 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:22:29,556 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:22:47,339 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:23:16,294 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:23:32,964 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:23:51,953 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:24:18,370 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:24:41,595 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:25:10,459 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:25:50,330 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:26:38,986 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:27:32,853 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:28:31,543 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:28:56,125 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:32:08,302 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:33:19,728 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:34:18,619 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:34:21,517 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-14 08:04:42,845 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-14 08:08:25,170 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-14 08:08:28,134 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,38 +14,33 @@ Traceback (most recent call last):
     return current_app.ensure_sync(func)(*args, **kwargs)
   File "/Users/danielweir/highlyfe3/app/main/routes.py", line 253, in About_Us
     return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 229, in template
-    {% endblock %}
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
-2023-08-14 01:34:40,743 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:35:16,474 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:35:49,293 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:37:30,042 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:43:41,383 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:44:52,672 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:45:22,955 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:46:36,264 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:47:31,641 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:48:24,237 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:49:59,275 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:52:01,000 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:54:40,385 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:55:54,416 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:55:57,397 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 65, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 52, in block 'app_content'
+    {{ forms['text_inpu1'+(row*3+column+1)]() }}
+TypeError: can only concatenate str (not "int") to str
+2023-08-14 08:09:53,784 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-14 08:09:56,598 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -80,29 +54,70 @@ Traceback (most recent call last):
     return current_app.ensure_sync(func)(*args, **kwargs)
   File "/Users/danielweir/highlyfe3/app/main/routes.py", line 253, in About_Us
     return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 150, in render_template
-    template = app.jinja_env.get_or_select_template(template_name_or_list)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1010, in get_template
-    return self._load_template(name, globals)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 969, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/loaders.py", line 138, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 768, in compile
-    self.handle_exception(source=source_hint)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 351, in template
-    {% endblock %}
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
-2023-08-14 01:56:48,828 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 01:57:22,449 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 07:59:18,382 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 07:59:53,883 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 08:00:27,879 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 08:03:04,921 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 08:03:20,895 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 08:04:09,905 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-14 08:04:22,330 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 65, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 52, in block 'app_content'
+    {{ forms['text_input'+(row*3+column+1)]() }}
+TypeError: can only concatenate str (not "int") to str
+2023-08-14 08:11:54,638 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-14 08:11:57,510 ERROR: Exception on /About_Us [POST] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "/Users/danielweir/highlyfe3/app/main/routes.py", line 253, in About_Us
+    return render_template('About_Us.html',users=users, title='About Us', name_to_update=name_to_update, id=id, form=form, forms=forms)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/danielweir/highlyfe3/app/templates/base.html", line 65, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "/Users/danielweir/highlyfe3/app/templates/About_Us.html", line 55, in block 'app_content'
+    <p style="color: white; font-size: 22px;">{{ current_user['text_input'+(row*3+column+1)] }}</p>
+TypeError: can only concatenate str (not "int") to str
+2023-08-14 08:13:50,640 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-14 08:14:52,262 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
