@@ -2,13 +2,434 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<head><meta charset="UTF-8"></head>
     <style>
-        body {
-            background-color: rgba(17, 17, 184, 0.748);
-        }  
-        h1 { color: white;
-                }
+     body {
+        background-color: rgba(17, 17, 184, 0.748);
+    }
+    h1 {
+        color: white;
+        font-size: 60px;
+        font-family: SF Pro Display;
+    }
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        margin:20px;
+        word-wrap: break-word;
+        border-collapse: collapse;
+        display: inline-block;
+        font-family: SF Pro Display;
+        border-radius: 10px;
+        background-color: #010002;
+
+    }
+
+    .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        border-radius: 10px;
+
+    }
+
     </style>
     <h1 style= "font-size:60px;font-family: SF Pro Display;">Welcome Back to Highlyfe, {{ current_user.username }}!</h1>
-{% endblock %}
+    {% if current_user.id == 1 %}
+
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input1() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input1 }}</p>
+    </div>
+
+    
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input2() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input2 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_1 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_1 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input3() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input3 }}</p>
+    </div>
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input4() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input4 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_2 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_2 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input5() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input5 }}</p>
+    </div>
+
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input6() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input6 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_3 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_3 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input7() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input7 }}</p>
+    </div>
+
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input8() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input8 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_4 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_4 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input9() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input9 }}</p>
+    </div>
+
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input10() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input10 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_5 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_5 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input11() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input11 }}</p>
+    </div>
+
+
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input12() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input12 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_6 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_6 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input13() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input13 }}</p>
+    </div>
+
+
+    
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input14() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input14 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_7 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_7 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input15() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input15 }}</p>
+    </div>
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input16() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input16 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_8 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_8 }}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input17() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input17 }}</p>
+    </div>
+
+    <div class="profile-picture">
+        <form method="post">
+            {{ forms.tuxts_input18() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input18 }}</p>
+        <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit_9 }}" width="128">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.pit_9}}
+            {{ form.csrf_token }}
+            {{ form.submit }}
+        </form>
+        <form method="post">
+            {{ forms.tuxts_input19() }}
+            {{ forms.csrf_token }}
+            {{ forms.submit }}
+        </form>
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input19 }}</p>
+    </div>
+
+{% endif %}
+
+
+
+{% if current_user.id != 1 %}
+
+       
+        {% if current_user.tuxts_input %}
+        <div class="profile-picture">
+            <p style="color:white;font-size:28px;">{{ current_user.tuxts_input }}</p>
+        {% endif %}
+        {% for user in users %}
+            {% if user.pit %}
+                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit}}" width="128">
+            {% endif %}
+        {% endfor %}
+        {% if current_user.tuxts_input1 %}
+        <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input1 }}</p>
+     </div>
+            {% endif %}
+
+
+ 
+{% if current_user.tuxts_input2 %}
+<div class="profile-picture">
+    <p style="color:white;font-size:28px;">{{ current_user.tuxts_input2 }}</p>
+{% endif %}
+{% for user in users %}
+    {% if user.pit_1 %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
+    {% endif %}
+{% endfor %}
+{% if current_user.tuxts_input3 %}
+<p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input3 }}</p>
+</div>
+    {% endif %}
+
+
+    
+{% if current_user.tuxts_input4 %}
+<div class="profile-picture">
+    <p style="color:white;font-size:28px;">{{ current_user.tuxts_input4 }}</p>
+{% endif %}
+{% for user in users %}
+    {% if user.pit_2 %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}" width="128">
+    {% endif %}
+{% endfor %}
+{% if current_user.tuxts_input5 %}
+<p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input5 }}</p>
+</div>
+    {% endif %}
+
+
+
+{% if current_user.tuxts_input6 %}
+<div class="profile-picture">
+    <p style="color:white;font-size:28px;">{{ current_user.tuxts_input6 }}</p>
+{% endif %}
+{% for user in users %}
+    {% if user.pit_3 %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" width="128">
+    {% endif %}
+{% endfor %}
+{% if current_user.tuxts_input7 %}
+<p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input7 }}</p>
+</div>
+    {% endif %}
+
+
+    
+{% if current_user.tuxts_input8 %}
+<div class="profile-picture">
+    <p style="color:white;font-size:28px;">{{ current_user.tuxts_input8 }}</p>
+{% endif %}
+{% for user in users %}
+    {% if user.pit_4 %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}" width="128">
+    {% endif %}
+{% endfor %}
+{% if current_user.tuxts_input9 %}
+<p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input9 }}</p>
+</div>
+    {% endif %}
+
+
+    
+{% if current_user.tuxts_input10 %}
+<div class="profile-picture">
+    <p style="color:white;font-size:28px;">{{ current_user.tuxts_input10 }}</p>
+{% endif %}
+{% for user in users %}
+    {% if user.pit_5 %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" width="128">
+    {% endif %}
+{% endfor %}
+{% if current_user.tuxts_input11 %}
+<p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input11 }}</p>
+</div>
+    {% endif %}
+
+
+
+    {% if current_user.tuxts_input12 %}
+    <div class="profile-picture">
+        <p style="color:white;font-size:28px;">{{ current_user.tuxts_input12 }}</p>
+    {% endif %}
+    {% for user in users %}
+        {% if user.pit_6 %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}" width="128">
+        {% endif %}
+    {% endfor %}
+    {% if current_user.tuxts_input13 %}
+    <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input13 }}</p>
+    </div>
+        {% endif %}
+    
+    
+        
+    {% if current_user.tuxts_input14 %}
+    <div class="profile-picture">
+        <p style="color:white;font-size:28px;">{{ current_user.tuxts_input14 }}</p>
+    {% endif %}
+    {% for user in users %}
+        {% if user.pit_7 %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}" width="128">
+        {% endif %}
+    {% endfor %}
+    {% if current_user.tuxts_input15 %}
+    <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input15 }}</p>
+    </div>
+        {% endif %}
+    
+    
+    
+    {% if current_user.tuxts_input16 %}
+    <div class="profile-picture">
+        <p style="color:white;font-size:28px;">{{ current_user.tuxts_input16 }}</p>
+    {% endif %}
+    {% for user in users %}
+        {% if user.pit_8 %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}" width="128">
+        {% endif %}
+    {% endfor %}
+    {% if current_user.tuxts_input17 %}
+    <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input17 }}</p>
+    </div>
+        {% endif %}
+    
+    
+        
+    {% if current_user.tuxts_input18 %}
+    <div class="profile-picture">
+        <p style="color:white;font-size:28px;">{{ current_user.tuxts_input18 }}</p>
+    {% endif %}
+    {% for user in users %}
+        {% if user.pit_9 %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}" width="128">
+        {% endif %}
+    {% endfor %}
+    {% if current_user.tuxts_input19 %}
+    <p style="color:white;font-size:28px;border-radius: 10px;background-color: #010002;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input19 }}</p>
+    </div>
+        {% endif %}
+
+
+
+
+
+{% endif %}
+
+    
+    
+    {% endblock %}
 

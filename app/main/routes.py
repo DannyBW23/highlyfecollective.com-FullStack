@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, jsonify, c
 from flask_login import current_user,login_required
 from werkzeug.utils import secure_filename
 from app import db
-from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm, PicsForm
+from app.main.forms import EditProfileForm,EmptyForm, PostForm, SearchForm, MessageForm, NewForm, PicsForm, NewsForm, PicForm, PitForm,NuwsForm
 from app.models import User, Post, Message, Notification
 import uuid
 from app.main import bp
@@ -28,31 +28,591 @@ def before_request():
 		if current_user.is_authenticated:
 			current_user.last_seen = datetime.utcnow()
 			db.session.commit()	
-@bp.route('/studio', methods=['GET'])
+@bp.route('/studio', methods=['GET','POST'])
 @login_required
 def studio():
-	next_url = url_for('main.studio')
-	prev_url = url_for('main.studio')
-	return render_template('studio.html', title='studio', next_url=next_url, prev_url=prev_url)
+	form=PicForm()
+	forms=NewsForm()
+	id = current_user.id
+	users = User.query.all()
+	name_to_update = User.query.get_or_404(id)
+
+	if forms.validate_on_submit() :
+		texts_input = forms.texts_input.data
+		texts_input1 = forms.texts_input1.data
+		texts_input2 = forms.texts_input2.data
+		texts_input3 = forms.texts_input3.data
+		texts_input4 = forms.texts_input4.data
+		texts_input5 = forms.texts_input5.data
+		texts_input6 = forms.texts_input6.data
+		texts_input7 = forms.texts_input7.data
+		texts_input8 = forms.texts_input8.data
+		texts_input9 = forms.texts_input9.data
+		texts_input10 = forms.texts_input10.data
+		texts_input11 = forms.texts_input11.data
+		texts_input12 = forms.texts_input12.data
+		texts_input13 = forms.texts_input13.data
+		texts_input14 = forms.texts_input14.data
+		texts_input15 = forms.texts_input15.data
+		texts_input16 = forms.texts_input16.data
+		texts_input17 = forms.texts_input17.data
+		texts_input18 = forms.texts_input18.data
+		texts_input19 = forms.texts_input19.data
+		db.session.commit()
+		if texts_input:
+			for user in users:
+				texts_input = forms.texts_input.data
+				user.texts_input = texts_input
+				db.session.commit()
+		if texts_input1:
+			for user in users:
+				texts_input1 = forms.texts_input1.data
+				user.texts_input1 = texts_input1
+				db.session.commit()
+		if texts_input2:
+			for user in users:
+				texts_input2 = forms.texts_input2.data
+				user.texts_input2 = texts_input2
+				db.session.commit()
+		if texts_input3:
+			for user in users:
+				texts_input3 = forms.texts_input3.data
+				user.texts_input3 = texts_input3
+				db.session.commit()
+		if texts_input4:
+			for user in users:
+				texts_input4 = forms.texts_input4.data
+				user.texts_input4= texts_input4
+				db.session.commit()
+		if texts_input5:
+			for user in users:
+				texts_input5 = forms.texts_input5.data
+				user.texts_input5 = texts_input5
+				db.session.commit()
+		if texts_input6:
+			for user in users:
+				texts_input6 = forms.texts_input6.data
+				user.texts_input6 = texts_input6
+				db.session.commit()
+		if texts_input7:
+			for user in users:
+				texts_input7 = forms.texts_input7.data
+				user.texts_input7 = texts_input7
+				db.session.commit()
+		if texts_input8:
+			for user in users:
+				texts_input8 = forms.texts_input8.data
+				user.texts_input8 = texts_input8
+				db.session.commit()
+		if texts_input9:
+			for user in users:
+				texts_input9 = forms.texts_input9.data
+				user.texts_input9= texts_input9
+				db.session.commit()
+		if texts_input10:
+			for user in users:
+				texts_input10 = forms.texts_input10.data
+				user.texts_input10 = texts_input10
+				db.session.commit()
+		if texts_input11:
+			for user in users:
+				texts_input11 = forms.texts_input11.data
+				user.texts_input11 = texts_input11
+				db.session.commit()
+		if texts_input12:
+			for user in users:
+				texts_input12 = forms.texts_input12.data
+				user.texts_input12 = texts_input12
+				db.session.commit()
+		if texts_input13:
+			for user in users:
+				texts_input13 = forms.texts_input13.data
+				user.texts_input13 = texts_input13
+				db.session.commit()
+		if texts_input14:
+			for user in users:
+				texts_input14 = forms.texts_input14.data
+				user.texts_input14= texts_input14
+				db.session.commit()
+		if texts_input15:
+			for user in users:
+				texts_input15 = forms.texts_input15.data
+				user.texts_input15 = texts_input15
+				db.session.commit()
+		if texts_input16:
+			for user in users:
+				texts_input16 = forms.texts_input16.data
+				user.texts_input16 = texts_input16
+				db.session.commit()
+		if texts_input17:
+			for user in users:
+				texts_input17 = forms.texts_input17.data
+				user.texts_input17 = texts_input17
+				db.session.commit()
+		if texts_input18:
+			for user in users:
+				texts_input18 = forms.texts_input18.data
+				user.texts_input18 = texts_input18
+				db.session.commit()
+		if texts_input19:
+			for user in users:
+				texts_input19 = forms.texts_input19.data
+				user.texts_input19= texts_input19
+				db.session.commit()
+	if form.validate_on_submit() :
+		if not texts_input and not texts_input1 and not texts_input2 and not texts_input3 and not texts_input4 and not texts_input5 and not texts_input6 and not texts_input7 and not texts_input8 and not texts_input9 and not texts_input10 and not texts_input11 and not texts_input12 and not texts_input13 and not texts_input14 and not texts_input15 and not texts_input16 and not texts_input17 and not texts_input18 and not texts_input19:
+			if request.method == 'POST':
+				if 'pic' in request.files:
+					file = request.files['pic']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form)
+				if 'pic_1' in request.files:
+					file = request.files['pic_1']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_1 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_2' in request.files:
+					file = request.files['pic_2']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_2 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_3' in request.files:
+					file = request.files['pic_3']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_3 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_4' in request.files:
+					file = request.files['pic_4']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_4 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_5' in request.files:
+					file = request.files['pic_5']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_5 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_6' in request.files:
+					file = request.files['pic_6']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_6 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_7' in request.files:
+					file = request.files['pic_7']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_7 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_8' in request.files:
+					file = request.files['pic_8']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_8 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pic_9' in request.files:
+					file = request.files['pic_9']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pic_9 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.studio', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+	return render_template('studio.html',users=users, title='studio', name_to_update=name_to_update, id=id, form=form, forms=forms)
 
 
 
-@bp.route('/', methods=['GET'])
-@bp.route('/index', methods=['GET'])
+@bp.route('/', methods=['GET','POST'])
+@bp.route('/index', methods=['GET','POST'])
 @login_required
 def index():
-	next_url = url_for('main.index')
-	prev_url = url_for('main.index')
-	return render_template('index.html', title='Highlyfe', prev_url=prev_url, next_url=next_url)
-@bp.route('/posts')
-def posts():
-	posts = Post.query.order_by(Post.date_posted)
-	return render_template("_posts.html", posts=posts)
+	form=PitForm()
+	forms=NuwsForm()
+	id = current_user.id
+	users = User.query.all()
+	name_to_update = User.query.get_or_404(id)
 
-@bp.route('/posts/<int:id>')
-def post(id):
-	post = Post.query.get_or_404(id)
-	return render_template('_post.html', post=post)
+	if forms.validate_on_submit() :
+		tuxts_input = forms.tuxts_input.data
+		tuxts_input1 = forms.tuxts_input1.data
+		tuxts_input2 = forms.tuxts_input2.data
+		tuxts_input3 = forms.tuxts_input3.data
+		tuxts_input4 = forms.tuxts_input4.data
+		tuxts_input5 = forms.tuxts_input5.data
+		tuxts_input6 = forms.tuxts_input6.data
+		tuxts_input7 = forms.tuxts_input7.data
+		tuxts_input8 = forms.tuxts_input8.data
+		tuxts_input9 = forms.tuxts_input9.data
+		tuxts_input10 = forms.tuxts_input10.data
+		tuxts_input11 = forms.tuxts_input11.data
+		tuxts_input12 = forms.tuxts_input12.data
+		tuxts_input13 = forms.tuxts_input13.data
+		tuxts_input14 = forms.tuxts_input14.data
+		tuxts_input15 = forms.tuxts_input15.data
+		tuxts_input16 = forms.tuxts_input16.data
+		tuxts_input17 = forms.tuxts_input17.data
+		tuxts_input18 = forms.tuxts_input18.data
+		tuxts_input19 = forms.tuxts_input19.data
+		db.session.commit()
+		if tuxts_input:
+			for user in users:
+				tuxts_input = forms.tuxts_input.data
+				user.tuxts_input = tuxts_input
+				db.session.commit()
+		if tuxts_input1:
+			for user in users:
+				tuxts_input1 = forms.tuxts_input1.data
+				user.tuxts_input1 = tuxts_input1
+				db.session.commit()
+		if tuxts_input2:
+			for user in users:
+				tuxts_input2 = forms.tuxts_input2.data
+				user.tuxts_input2 = tuxts_input2
+				db.session.commit()
+		if tuxts_input3:
+			for user in users:
+				tuxts_input3 = forms.tuxts_input3.data
+				user.tuxts_input3 = tuxts_input3
+				db.session.commit()
+		if tuxts_input4:
+			for user in users:
+				tuxts_input4 = forms.tuxts_input4.data
+				user.tuxts_input4= tuxts_input4
+				db.session.commit()
+		if tuxts_input5:
+			for user in users:
+				tuxts_input5 = forms.tuxts_input5.data
+				user.tuxts_input5 = tuxts_input5
+				db.session.commit()
+		if tuxts_input6:
+			for user in users:
+				tuxts_input6 = forms.tuxts_input6.data
+				user.tuxts_input6 = tuxts_input6
+				db.session.commit()
+		if tuxts_input7:
+			for user in users:
+				tuxts_input7 = forms.tuxts_input7.data
+				user.tuxts_input7 = tuxts_input7
+				db.session.commit()
+		if tuxts_input8:
+			for user in users:
+				tuxts_input8 = forms.tuxts_input8.data
+				user.tuxts_input8 = tuxts_input8
+				db.session.commit()
+		if tuxts_input9:
+			for user in users:
+				tuxts_input9 = forms.tuxts_input9.data
+				user.tuxts_input9= tuxts_input9
+				db.session.commit()
+		if tuxts_input10:
+			for user in users:
+				tuxts_input10 = forms.tuxts_input10.data
+				user.tuxts_input10 = tuxts_input10
+				db.session.commit()
+		if tuxts_input11:
+			for user in users:
+				tuxts_input11 = forms.tuxts_input11.data
+				user.tuxts_input11 = tuxts_input11
+				db.session.commit()
+		if tuxts_input12:
+			for user in users:
+				tuxts_input12 = forms.tuxts_input12.data
+				user.tuxts_input12 = tuxts_input12
+				db.session.commit()
+		if tuxts_input13:
+			for user in users:
+				tuxts_input13 = forms.tuxts_input13.data
+				user.tuxts_input13 = tuxts_input13
+				db.session.commit()
+		if tuxts_input14:
+			for user in users:
+				tuxts_input14 = forms.tuxts_input14.data
+				user.tuxts_input14= tuxts_input14
+				db.session.commit()
+		if tuxts_input15:
+			for user in users:
+				tuxts_input15 = forms.tuxts_input15.data
+				user.tuxts_input15 = tuxts_input15
+				db.session.commit()
+		if tuxts_input16:
+			for user in users:
+				tuxts_input16 = forms.tuxts_input16.data
+				user.tuxts_input16 = tuxts_input16
+				db.session.commit()
+		if tuxts_input17:
+			for user in users:
+				tuxts_input17 = forms.tuxts_input17.data
+				user.tuxts_input17 = tuxts_input17
+				db.session.commit()
+		if tuxts_input18:
+			for user in users:
+				tuxts_input18 = forms.tuxts_input18.data
+				user.tuxts_input18 = tuxts_input18
+				db.session.commit()
+		if tuxts_input19:
+			for user in users:
+				tuxts_input19 = forms.tuxts_input19.data
+				user.tuxts_input19= tuxts_input19
+				db.session.commit()
+	if form.validate_on_submit() :
+		if not tuxts_input and not tuxts_input1 and not tuxts_input2 and not tuxts_input3 and not tuxts_input4 and not tuxts_input5 and not tuxts_input6 and not tuxts_input7 and not tuxts_input8 and not tuxts_input9 and not tuxts_input10 and not tuxts_input11 and not tuxts_input12 and not tuxts_input13 and not tuxts_input14 and not tuxts_input15 and not tuxts_input16 and not tuxts_input17 and not tuxts_input18 and not tuxts_input19:
+			if request.method == 'POST':
+				if 'pit' in request.files:
+					file = request.files['pit']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form)
+				if 'pit_1' in request.files:
+					file = request.files['pit_1']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_1 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_2' in request.files:
+					file = request.files['pit_2']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_2 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_3' in request.files:
+					file = request.files['pit_3']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_3 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_4' in request.files:
+					file = request.files['pit_4']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_4 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_5' in request.files:
+					file = request.files['pit_5']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_5 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_6' in request.files:
+					file = request.files['pit_6']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_6 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_7' in request.files:
+					file = request.files['pit_7']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_7 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_8' in request.files:
+					file = request.files['pit_8']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_8 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pit_9' in request.files:
+					file = request.files['pit_9']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pit_9 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.index', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("index.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+	return render_template('index.html',users=users, title='highlyfe', name_to_update=name_to_update, id=id, form=form, forms=forms)
+
 
 @bp.context_processor
 def base():
@@ -92,6 +652,14 @@ def About_Us():
 		text_input9 = forms.text_input9.data
 		text_input10 = forms.text_input10.data
 		text_input11 = forms.text_input11.data
+		text_input12 = forms.text_input12.data
+		text_input13 = forms.text_input13.data
+		text_input14 = forms.text_input14.data
+		text_input15 = forms.text_input15.data
+		text_input16 = forms.text_input16.data
+		text_input17 = forms.text_input17.data
+		text_input18 = forms.text_input18.data
+		text_input19 = forms.text_input19.data
 		db.session.commit()
 		if text_input:
 			for user in users:
@@ -153,8 +721,48 @@ def About_Us():
 				text_input11 = forms.text_input11.data
 				user.text_input11 = text_input11
 				db.session.commit()
+		if text_input12:
+			for user in users:
+				text_input12 = forms.text_input12.data
+				user.text_input12 = text_input12
+				db.session.commit()
+		if text_input13:
+			for user in users:
+				text_input13 = forms.text_input13.data
+				user.text_input13 = text_input13
+				db.session.commit()
+		if text_input14:
+			for user in users:
+				text_input14 = forms.text_input14.data
+				user.text_input14= text_input14
+				db.session.commit()
+		if text_input15:
+			for user in users:
+				text_input15 = forms.text_input15.data
+				user.text_input15 = text_input15
+				db.session.commit()
+		if text_input16:
+			for user in users:
+				text_input16 = forms.text_input16.data
+				user.text_input16 = text_input16
+				db.session.commit()
+		if text_input17:
+			for user in users:
+				text_input17 = forms.text_input17.data
+				user.text_input17 = text_input17
+				db.session.commit()
+		if text_input18:
+			for user in users:
+				text_input18 = forms.text_input18.data
+				user.text_input18 = text_input18
+				db.session.commit()
+		if text_input19:
+			for user in users:
+				text_input19 = forms.text_input19.data
+				user.text_input19= text_input19
+				db.session.commit()
 	if form.validate_on_submit() :
-		if not text_input and not text_input1 and not text_input2 and not text_input3 and not text_input4 and not text_input5 and not text_input6 and not text_input7 and not text_input8 and not text_input9 and not text_input10 and not text_input11:
+		if not text_input and not text_input1 and not text_input2 and not text_input3 and not text_input4 and not text_input5 and not text_input6 and not text_input7 and not text_input8 and not text_input9 and not text_input10 and not text_input11 and not text_input12 and not text_input13 and not text_input14 and not text_input15 and not text_input16 and not text_input17 and not text_input18 and not text_input19:
 			if request.method == 'POST':
 				if 'pics' in request.files:
 					file = request.files['pics']
@@ -244,6 +852,68 @@ def About_Us():
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
 						name_to_update.pics_5 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pics_6' in request.files:
+					file = request.files['pics_6']
+					pic_filename = secure_filename(file.filename)
+
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_6 = pic_name 
+
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pics_7' in request.files:
+					file = request.files['pics_7']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_7 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pics_8' in request.files:
+					file = request.files['pics_8']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_8 = pic_name 
+						db.session.commit()
+						return redirect(url_for('main.About_Us', form=form))
+					except ClientError as e:
+						print(f"Error uploading file to AWS S3: {e}")
+						flash("Error!  Looks like there was a problem...try again!")
+						return render_template("About_Us.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
+				if 'pics_9' in request.files:
+					file = request.files['pics_9']
+					pic_filename = secure_filename(file.filename)
+					pic_name = str(uuid.uuid1()) + "_" + pic_filename
+					s3_client = boto3.client('s3', region_name='us-east-1')
+					try:
+						s3_client = boto3.client('s3')
+						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
+						name_to_update.pics_9 = pic_name 
 						db.session.commit()
 						return redirect(url_for('main.About_Us', form=form))
 					except ClientError as e:
