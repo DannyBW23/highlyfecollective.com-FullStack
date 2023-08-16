@@ -37,7 +37,8 @@
 
     </style>
     <h1 style= "font-size:60px;font-family: SF Pro Display;">Welcome Back to Highlyfe, {{ current_user.username }}!</h1>
-    {% if current_user.id == 1 %}
+
+    {% if current_user.id == 1 or current_user.id == 4 %}
 
 
     <div class="profile-picture">

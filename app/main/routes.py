@@ -959,7 +959,7 @@ def explore():
 def delete_post(id):
 	post_to_delete = Post.query.get_or_404(id)
 	current_user_id = current_user.id
-	if current_user_id == post_to_delete.author.id or current_user_id == 1:
+	if current_user_id == post_to_delete.author.id or current_user_id == 1 or current_user_id == 4:
 		try: 
 			db.session.delete(post_to_delete)
 			db.session.commit()
@@ -1064,7 +1064,7 @@ def unfollow(username):
 @login_required
 def pin_post(id):
 	post = Post.query.get_or_404(id)
-	if current_user.id == 1:
+	if current_user.id == 1 or current_user.id == 4:
 		post.pinned = True
 		db.session.commit()
 	else:
@@ -1075,7 +1075,7 @@ def pin_post(id):
 @login_required
 def unpin_post(id):
 	post = Post.query.get_or_404(id)
-	if current_user.id == 1:
+	if current_user.id == 1 or current_user.id == 4:
 		post.pinned = False
 		db.session.commit()
 	else:
@@ -1085,7 +1085,7 @@ def unpin_post(id):
 @bp.route('/delete/<int:id>', methods=['GET','POST'])
 @login_required
 def delete(id):
-	if id == current_user.id or  current_user.id==1:
+	if id == current_user.id or  current_user.id==1 or current_user.id == 4:
 		user_to_delete = User.query.get_or_404(id)
 		name = None
 		form = EditProfileForm(current_user.username)
@@ -1107,7 +1107,7 @@ def delete(id):
 def post_action(id, action):
 	post = Post.query.get_or_404(id)
 	if action == 'delete':
-		if post.user_id == current_user.id or current_user.id == 1:
+		if post.user_id == current_user.id or current_user.id == 1 or current_user.id == 4:
 			try:
 				db.session.delete(post)
 				db.session.commit()

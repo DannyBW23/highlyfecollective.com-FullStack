@@ -14,6 +14,7 @@
     .profile-picture {
         width: 150px;
         height: 150px;
+        color: white;
         margin:20px;
         word-wrap: break-word;
         border-collapse: collapse;
@@ -38,7 +39,7 @@
 </style>
 
 <h1>You Should've Been Here!</h1>
-{% if current_user.id == 1 %}
+{% if current_user.id == 1 or current_user.id == 4 %}
 
 
                 <div class="profile-picture">
@@ -279,7 +280,7 @@
             {% endif %}
         {% endfor %}
         {% if current_user.text_input1 %}
-            <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.text_input1 }}</p>
+<p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.text_input1 }}</p>
     </div>
             {% endif %}
 
