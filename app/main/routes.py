@@ -1116,7 +1116,7 @@ def post_action(id, action):
 		else:
 			flash("You are not authorized to delete this post.")
 	elif action == 'pin':
-		if current_user.id == 1:
+		if current_user.id == 1 or current_user.id == 4:
 			post.pinned = True
 			db.session.commit()
 		else:

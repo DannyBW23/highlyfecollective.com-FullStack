@@ -49,7 +49,7 @@
                     <button type="submit" class="btn btn-outline-danger btn-sm" style="font-size: 8px; padding: 4px 4px; color: black;">Delete Post</button>
                 </form>
             {% endif %}
-            {% if current_user.is_authenticated and current_user.id == 1 and current_user.id == 4 %}
+            {% if current_user.is_authenticated and current_user.id == 1 or current_user.id == 4 %}
                 {% if post.pinned %}
                     <form action="{{ url_for('main.unpin_post', id=post.id) }}" method="post">
                         {{ form.hidden_tag() }}
