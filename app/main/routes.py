@@ -11,7 +11,7 @@ from flask_sqlalchemy import Pagination
 import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
-from sqlalchemy import func
+from app.auth.forms import LoginForm
 @bp.before_app_request
 def before_request():
 	if not request.is_secure:
@@ -319,8 +319,12 @@ def studio():
 						flash("Error!  Looks like there was a problem...try again!")
 						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form, forms=forms)
 	return render_template('studio.html',users=users, title='studio', name_to_update=name_to_update, id=id, form=form, forms=forms)
-
-
+@bp.route('/design', methods=['GET', 'POST'])
+@login_required
+def design():
+	form = LoginForm()
+	username = User.query.filter_by(username=form.username.data).first()
+	return render_template('design.html', username=username)
 
 @bp.route('/', methods=['GET','POST'])
 @bp.route('/index', methods=['GET','POST'])

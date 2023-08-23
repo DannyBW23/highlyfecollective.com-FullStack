@@ -27,7 +27,8 @@
                 <span class="icon-bar"></span>
             </button>
         {% if current_user.is_anonymous %}
-                <a class="navbar-brand" href="{{ url_for('main.index') }}"style="font-size: 40px; height:60px;">Highlyfe</a>
+        <a class="navbar-brand" href="{{ url_for('auth.login') }}"style="font-size: 40px; height:60px;">Highlyfe</a>
+
                     {% else  %}
                     <div class="container">
       <div class="navbar-header"> 
@@ -43,7 +44,7 @@
                     <li><a href="{{ url_for('main.feed') }}">Feed</a></li>
                     <li><a href="{{ url_for('main.messages', username=current_user.username) }}">{{ ('Messages') }}{% set new_messages = current_user.new_messages() %} <span id="message_count" class="badge"style="visibility: {% if new_messages %}visible{% else %}hidden{% endif %};">{{ new_messages }}</span></a></li></ul>
                      <ul class="nav navbar-nav navbar-right"><li><a href="{{ url_for('auth.logout') }}">Logout</a></li></ul>
-              {% endif %}
+            {% endif %}
         </div>
 </div>
 </nav>

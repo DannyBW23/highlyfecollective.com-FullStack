@@ -3,8 +3,8 @@
 
 {% block app_content %}
 <head><meta charset="UTF-8"></head>
-    <style>
-     body {
+<style>
+    body {
         background-color: rgba(17, 17, 184, 0.748);
     }
     h1 {
@@ -14,25 +14,25 @@
     }
     .profile-picture {
         width: 150px;
-        height: 150px;
+        height: 200px;
         margin:20px;
         word-wrap: break-word;
         border-collapse: collapse;
         display: inline-block;
         font-family: SF Pro Display;
-        border-radius: 10px;
+        border-radius: 5px;
         background-color: #b1a7a8ee;
 
     }
 
+
     .profile-picture img {
         width: 100%;
         height: 100%;
+        height: 150px;
         object-fit: cover;
         border-collapse: separate;
-        border-spacing: 0 15px;
-        border-radius: 10px;
-
+        border-radius: 5px;
     }
 
     </style>
@@ -265,7 +265,6 @@
 
 {% if current_user.id != 1 %}
 
-       
         {% if current_user.tuxts_input %}
         <div class="profile-picture">
             <p style="color:white;font-size:22px;">{{ current_user.tuxts_input }}</p>
@@ -277,7 +276,7 @@
         {% endfor %}
         {% if current_user.tuxts_input1 %}
         <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.tuxts_input1 }}</p>
-     </div>
+        </div>
             {% endif %}
 
 
