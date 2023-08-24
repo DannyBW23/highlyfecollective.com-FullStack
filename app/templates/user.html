@@ -52,7 +52,7 @@
 <div style="display: flex; align-items: center; justify-content: space-between;">
     <h1 style="margin-left: 15px;"><a href="{{ url_for('main.explore') }}" style="color: white;">{{ user.username }}</a></h1>
     {% if current_user.id == 1 or current_user.id==4 and current_user.id != user.id and 'delete' not in request.endpoint %}
-        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger" style="margin-left: 200px;">Delete Account</a>
+        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger" style="margin-left: 150px;">Delete Account</a>
     {% endif %}
 </div>
 
