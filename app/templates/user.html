@@ -21,6 +21,7 @@
       font-weight: bold;
       margin-top: .005px;
       font-family:SF Pro Display;
+
     }
     .post-container{
     margin-top: 10px;
@@ -52,8 +53,7 @@
     {% endif %}
 
 </div> 
-       	<h1 style="margin-left: 15px">{{ user.username }}</h1>
-
+<h1 style="margin-left: 15px;"><a href="{{ url_for('main.explore') }}" style="color: white;">{{ user.username }}</a></h1>
              {% if user.profile_pic %}
             <div class="profile-picture">
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.profile_pic }}" alt="Profile Picture" width="225" height="225">
