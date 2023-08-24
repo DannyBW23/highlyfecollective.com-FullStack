@@ -48,12 +48,16 @@
   object-fit: cover; 
 }
     </style>
-        {% if current_user.id == 1 or current_user.id==4 and current_user.id != user.id and 'delete' not in request.endpoint %}
-        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger"  style="margin-left: 200px;">Delete Account</a>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <h1 style="margin-left: 15px;"><a href="{{ url_for('main.explore') }}" style="color: white;">{{ user.username }}</a></h1>
+    {% if current_user.id == 1 or current_user.id==4 and current_user.id != user.id and 'delete' not in request.endpoint %}
+        <a href="{{ url_for('main.delete', id=user.id) }}" class="btn btn-danger" style="margin-left: 200px;">Delete Account</a>
     {% endif %}
+</div>
 
-</div> 
-<h1 style="margin-left: 15px;"><a href="{{ url_for('main.explore') }}" style="color: white;">{{ user.username }}</a></h1>
+</div>
+
              {% if user.profile_pic %}
             <div class="profile-picture">
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.profile_pic }}" alt="Profile Picture" width="225" height="225">
