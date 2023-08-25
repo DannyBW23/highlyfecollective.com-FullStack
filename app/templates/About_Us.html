@@ -387,7 +387,7 @@
         {% for user in users %}
         {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
-        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics_2 }}">
+        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"id="videoPlayer">
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
         </video>
           {% else %}
@@ -400,7 +400,15 @@
     </div>
 
         {% endif %}
-
+        <script>
+            var videoPlayer = document.getElementById("videoPlayer");
+            var posterImage = new Image();
+            posterImage.src = "https://profilepic23.s3.amazonaws.com/{{ user.pics }}";
+        
+            videoPlayer.addEventListener("loadedmetadata", function() {
+                videoPlayer.setAttribute("poster", posterImage.src);
+            });
+        </script>
  
 {% if current_user.text_input2 %}
 <div class="profile-picture">
