@@ -375,7 +375,42 @@
 
 {% endif %}
 
-     
+<script>
+    var agent = navigator.userAgent;
+    var isIphone = (agent.indexOf('iPhone') != -1) || (agent.indexOf('iPod') != -1);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var users = [{% for user in users %}"{{ user.pics }}",{% endfor %}];
+        var container = document.getElementById("videoContainer");
+
+        for (var i = 0; i < users.length; i++) {
+            var userPic = users[i];
+
+            if (userPic.endsWith('.mov') || userPic.endsWith('.mp4') || userPic.endsWith('.mp3')) {
+                var videoTag = document.createElement("video");
+                videoTag.controls = true;
+                videoTag.preload = isIphone ? "auto" : "metadata";
+
+                if (isIphone) {
+                    videoTag.autoplay = true;
+                }
+
+                var sourceTag = document.createElement("source");
+                sourceTag.src = "https://profilepic23.s3.amazonaws.com/" + userPic;
+                sourceTag.type = "video/mp4";
+
+                videoTag.appendChild(sourceTag);
+                container.appendChild(videoTag);
+            } else {
+                var imgTag = document.createElement("img");
+                imgTag.src = "https://profilepic23.s3.amazonaws.com/" + userPic;
+                imgTag.width = 128;
+                container.appendChild(imgTag);
+            }
+        }
+    });
+</script>
+
         
 {% if current_user.id != 1 %}
 
@@ -387,9 +422,8 @@
         {% for user in users %}
         {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
-        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"preload="metadata">
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics.#t=0.5 }}" type="video/mp4">
-        </video>
+
+
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
          {% endif %}
