@@ -92,13 +92,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input2 }}</p>
-                    {% if name_to_update.pics_1.endswith('.mov') or name_to_update.pics_1.endswith('.mp4') or name_to_update.pics_1.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_1 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_1 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_1 }}
                         {{ form.csrf_token }}
@@ -119,13 +123,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input4 }}</p>
-                    {% if name_to_update.pics_2.endswith('.mov') or name_to_update.pics_2.endswith('.mp4') or name_to_update.pics_2.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_2 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_2 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_2 }}
                         {{ form.csrf_token }}
@@ -147,13 +155,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input6 }}</p>
-                    {% if name_to_update.pics_3.endswith('.mov') or name_to_update.pics_3.endswith('.mp4') or name_to_update.pics_3.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_3 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_3 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_3 }}
                         {{ form.csrf_token }}
@@ -175,13 +187,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input8 }}</p>
-                    {% if name_to_update.pics_4.endswith('.mov') or name_to_update.pics_4.endswith('.mp4') or name_to_update.pics_4.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_4 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_4 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_4 }}
                         {{ form.csrf_token }}
@@ -203,13 +219,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input10 }}</p>
-                    {% if name_to_update.pics_5.endswith('.mov') or name_to_update.pics_5.endswith('.mp4') or name_to_update.pics_5.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_5 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_5 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_5 }}
                         {{ form.csrf_token }}
@@ -232,13 +252,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input12 }}</p>
-                    {% if name_to_update.pics_6.endswith('.mov') or name_to_update.pics_6.endswith('.mp4') or name_to_update.pics_6.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_6 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_6 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_6 }}
                         {{ form.csrf_token }}
@@ -261,13 +285,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input14 }}</p>
-                    {% if name_to_update.pics_7.endswith('.mov') or name_to_update.pics_7.endswith('.mp4') or name_to_update.pics_7.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_7 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_7 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_7 }}
                         {{ form.csrf_token }}
@@ -288,13 +316,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input16 }}</p>
-                    {% if name_to_update.pics_8.endswith('.mov') or name_to_update.pics_8.endswith('.mp4') or name_to_update.pics_8.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_8 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_8 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_8 }}
                         {{ form.csrf_token }}
@@ -315,13 +347,17 @@
                         {{ forms.submit }}
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input18 }}</p>
-                    {% if name_to_update.pics_9.endswith('.mov') or name_to_update.pics_9.endswith('.mp4') or name_to_update.pics_9.endswith('.mp3') %}
+                    {% for user in users %}
+                    {% if user.pics %}
+                    {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
                     <video controls>
-                        <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_9 }}" type="video/mp4">
+                        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
                     </video>
                       {% else %}
-                    <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pics_9 }}" width="128">
+                    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
                      {% endif %}
+                     {% endif %}
+                    {% endfor %}
                     <form method="post" enctype="multipart/form-data">
                         {{ form.pics_9}}
                         {{ form.csrf_token }}
