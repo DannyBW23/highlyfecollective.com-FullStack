@@ -390,6 +390,15 @@
         <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"id="videoPlayer">
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
         </video>
+        <script>
+            var videoPlayer = document.getElementById("videoPlayer");
+            var posterImage = new Image();
+            posterImage.src = "https://profilepic23.s3.amazonaws.com/{{ user.pics }}";
+        
+            videoPlayer.addEventListener("loadedmetadata", function() {
+                videoPlayer.setAttribute("poster", posterImage.src);
+            });
+        </script>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
          {% endif %}
@@ -400,15 +409,7 @@
     </div>
 
         {% endif %}
-        <script>
-            var videoPlayer = document.getElementById("videoPlayer");
-            var posterImage = new Image();
-            posterImage.src = "https://profilepic23.s3.amazonaws.com/{{ user.pics }}";
-        
-            videoPlayer.addEventListener("loadedmetadata", function() {
-                videoPlayer.setAttribute("poster", posterImage.src);
-            });
-        </script>
+
  
 {% if current_user.text_input2 %}
 <div class="profile-picture">
