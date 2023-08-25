@@ -56,6 +56,7 @@
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input }}</p>
+        {% for user in users %}
         {% if user.pit.endswith('.mov') or user.pit.endswith('.mp4') or user.pit.endswith('.mp3') %}
         <video controls>
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" type="video/mp4">
@@ -63,6 +64,7 @@
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" width="128">
          {% endif %}
+         {% endfor %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pit }}
             {{ form.csrf_token }}
