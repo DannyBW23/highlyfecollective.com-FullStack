@@ -780,7 +780,7 @@ def About_Us():
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
-						name_to_update.pics = pic_name # else: e
+						name_to_update.pics = pic_name 
 						db.session.commit()
 						return redirect(url_for('main.About_Us', form=form))
 					except ClientError as e:
