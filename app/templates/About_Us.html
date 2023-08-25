@@ -388,7 +388,7 @@
         {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
         <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"preload="metadata">
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics.mov#t=0.5 }}" type="video/mp4">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics.#t=0.5 }}" type="video/mp4">
         </video>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
