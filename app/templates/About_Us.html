@@ -387,15 +387,8 @@
         {% for user in users %}
         {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
-        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"preload="metadata"id="myVid">
+        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"preload="metadata">
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}/video#t=1.75"" type="video/mp4">
-            <script>
-                var el = document.getElementById('myVid');
-                el.addEventListener('play', () => {
-                    el.currentTime = 0;
-                }, { once: true });
-            </script>
-        </video>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
          {% endif %}
