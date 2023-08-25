@@ -164,7 +164,7 @@ def studio():
 	if form.validate_on_submit() :
 		if not texts_input and not texts_input1 and not texts_input2 and not texts_input3 and not texts_input4 and not texts_input5 and not texts_input6 and not texts_input7 and not texts_input8 and not texts_input9 and not texts_input10 and not texts_input11 and not texts_input12 and not texts_input13 and not texts_input14 and not texts_input15 and not texts_input16 and not texts_input17 and not texts_input18 and not texts_input19:
 			if request.method == 'POST':
-				if 'pic' in request.files:
+				if 'picx' in request.files:
 					file = request.files['pic']
 					pic_filename = secure_filename(file.filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename

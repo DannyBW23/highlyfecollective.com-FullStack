@@ -72,7 +72,7 @@ class User(UserMixin, db.Model):
 	texts_input17=db.Column(db.String(200), nullable=True)
 	texts_input18=db.Column(db.String(200), nullable=True)
 	texts_input19=db.Column(db.String(200), nullable=True)
-	pic=db.Column(db.String(255), nullable=True)
+	picx=db.Column(db.String(255), nullable=True)
 	pic_1=db.Column(db.String(255), nullable=True)
 	pic_2=db.Column(db.String(255), nullable=True)
 	pic_3=db.Column(db.String(255), nullable=True)

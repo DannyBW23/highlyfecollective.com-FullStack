@@ -385,13 +385,13 @@
         <p style="color:white;font-size:22px;">{{ current_user.text_input}}</p>
         {% endif %}
         {% for user in users %}
-        {% if user.pics %}
+        {% if user.picsx %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
-        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.pics }}"preload="metadata">
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}#t=0.1"type="video/mp4">
+        <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.picsx }}"preload="metadata">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.picsx }}#t=0.1"type="video/mp4">
             </video>
           {% else %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" width="128">
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.picsx }}" width="128">
          {% endif %}
          {% endif %}
         {% endfor %}

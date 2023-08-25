@@ -23,7 +23,7 @@ class EditProfileForm(FlaskForm):
 			if user is not None:
 				raise ValidationError(('Please use a different username.'))
 class PicForm(FlaskForm):
-    pic=FileField('pic' ,validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    picx=FileField('pic' ,validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pic_1=FileField('pic_1',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pic_2=FileField('pic_2',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pic_3=FileField('pic_3',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
