@@ -60,7 +60,7 @@
         {% if user.pit %}
         {% if user.pit.endswith('.mov') or user.pit.endswith('.mp4') or user.pit.endswith('.mp3') %}
         <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" type="video/mp4">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" width="128">
@@ -92,7 +92,7 @@
         {% if user.pit_1 %}
         {% if user.pit_1.endswith('.mov') or user.pit_1.endswith('.mp4') or user.pit_1.endswith('.mp3') %}
         <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" type="video/mp4">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
@@ -123,7 +123,7 @@
         {% if user.pit_2 %}
             {% if user.pit_2.endswith('.mov') or user.pit_2.endswith('.mp4') or user.pit_2.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}" width="128">
@@ -155,7 +155,7 @@
         {% if user.pit_3 %}
             {% if user.pit_3.endswith('.mov') or user.pit_3.endswith('.mp4') or user.pit_3.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" width="128">
@@ -185,12 +185,12 @@
         <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input8 }}</p>
         {% for user in users %}
         {% if user.pit_4 %}
-            {% if user.pit_4.endswith('.mov') or user.pit_4.endswith('.mp4') or user.pit_5.endswith('.mp3') %}
+            {% if user.pit_4.endswith('.mov') or user.pit_4.endswith('.mp4') or user.pit_4.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" width="128">
+                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}" width="128">
             {% endif %}
         {% endif %}
     {% endfor %}
@@ -219,7 +219,7 @@
         {% if user.pit_5 %}
             {% if user.pit_5.endswith('.mov') or user.pit_5.endswith('.mp4') or user.pit_5.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" width="128">
@@ -252,7 +252,7 @@
         {% if user.pit_6 %}
             {% if user.pit_6.endswith('.mov') or user.pit_6.endswith('.mp4') or user.pit_6.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}" width="128">
@@ -285,7 +285,7 @@
         {% if user.pit_7 %}
             {% if user.pit_7.endswith('.mov') or user.pit_7.endswith('.mp4') or user.pit_7.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}" width="128">
@@ -316,7 +316,7 @@
         {% if user.pit_8 %}
             {% if user.pit_8.endswith('.mov') or user.pit_8.endswith('.mp4') or user.pit_8.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}" width="128">
@@ -347,7 +347,7 @@
         {% if user.pit_9 %}
             {% if user.pit_9.endswith('.mov') or user.pit_9.endswith('.mp4') or user.pit_9.endswith('.mp3') %}
                 <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}" type="video/mp4">
+                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}#t=0.1" type="video/mp4"preload="metadata">
                 </video>
             {% else %}
                 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}" width="128">
@@ -381,7 +381,7 @@
         {% if user.pit %}
         {% if user.pit.endswith('.mov') or user.pit.endswith('.mp4') or user.pit.endswith('.mp3') %}
         <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" type="video/mp4">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
           {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" width="128">
@@ -403,7 +403,7 @@
 {% if user.pit_1 %}
 {% if user.pit_1.endswith('.mov') or user.pit_1.endswith('.mp4') or user.pit_1.endswith('.mp3') %}
 <video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" type="video/mp4">
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}#t=0.1" type="video/mp4"preload="metadata">
 </video>
   {% else %}
 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
@@ -425,7 +425,7 @@
 {% if user.pit_2 %}
 {% if user.pit_2.endswith('.mov') or user.pit_2.endswith('.mp4') or user.pit_2.endswith('.mp3') %}
 <video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}" type="video/mp4">
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}#t=0.1" type="video/mp4"preload="metadata">
 </video>
   {% else %}
 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_2 }}" width="128">
@@ -447,7 +447,7 @@
 {% if user.pit_3 %}
 {% if user.pit_3.endswith('.mov') or user.pit_3.endswith('.mp4') or user.pit_3.endswith('.mp3') %}
 <video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" type="video/mp4">
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}#t=0.1" type="video/mp4"preload="metadata">
 </video>
   {% else %}
 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" width="128">
@@ -469,7 +469,7 @@
 {% if user.pit_4 %}
 {% if user.pit_4.endswith('.mov') or user.pit_4.endswith('.mp4') or user.pit_4.endswith('.mp3') %}
 <video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}" type="video/mp4">
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}#t=0.1" type="video/mp4"preload="metadata">
 </video>
   {% else %}
 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_4 }}" width="128">
@@ -491,7 +491,7 @@
 {% if user.pit_5 %}
 {% if user.pit_5.endswith('.mov') or user.pit_5.endswith('.mp4') or user.pit_5.endswith('.mp3') %}
 <video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" type="video/mp4">
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}#t=0.1" type="video/mp4"preload="metadata">
 </video>
   {% else %}
 <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_5 }}" width="128">
@@ -513,10 +513,10 @@
     {% if user.pit_6 %}
     {% if user.pit_6.endswith('.mov') or user.pit_6.endswith('.mp4') or user.pit_6.endswith('.mp3') %}
     <video controls>
-        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}" type="video/mp4">
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}#t=0.1" type="video/mp4"preload="metadata">
     </video>
       {% else %}
-    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}" width="128">
+    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_6 }}#t=0.1" width="128">
      {% endif %}
      {% endif %}
     {% endfor %}
@@ -535,7 +535,7 @@
     {% if user.pit_7 %}
     {% if user.pit_7.endswith('.mov') or user.pit_7.endswith('.mp4') or user.pit_7.endswith('.mp3') %}
     <video controls>
-        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}" type="video/mp4">
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}#t=0.1" type="video/mp4"preload="metadata">
     </video>
       {% else %}
     <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_7 }}" width="128">
@@ -557,7 +557,7 @@
     {% if user.pit_8 %}
     {% if user.pit_8.endswith('.mov') or user.pit_8.endswith('.mp4') or user.pit_8.endswith('.mp3') %}
     <video controls>
-        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}" type="video/mp4">
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}#t=0.1" type="video/mp4"preload="metadata">
     </video>
       {% else %}
     <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_8 }}" width="128">
@@ -579,7 +579,7 @@
     {% if user.pit_9 %}
     {% if user.pit_9.endswith('.mov') or user.pit_9.endswith('.mp4') or user.pit_9.endswith('.mp3') %}
     <video controls>
-        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}" type="video/mp4">
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}#t=0.1" type="video/mp4" preload="metadata">
     </video>
       {% else %}
     <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_9 }}" width="128">
