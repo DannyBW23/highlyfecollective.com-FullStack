@@ -52,36 +52,7 @@
   
 
 
-    <div class="profile-picture">
-        <form method="post">
-            {{ forms.tuxts_input6() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input6 }}</p>
-        {% for user in users %}
-        {% if user.pit_3 %}
-            {% if user.pit_3.endswith('.mov') or user.pit_3.endswith('.mp4') or user.pit_3.endswith('.mp3') %}
-                <video controls>
-                    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}#t=0.1" type="video/mp4"preload="metadata">
-                </video>
-            {% else %}
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" width="128">
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-        <form method="post" enctype="multipart/form-data">
-            {{ form.pit_3 }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-        </form>
-        <form method="post">
-            {{ forms.tuxts_input7() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:250px;">{{ current_user.tuxts_input7 }}</p>
-    </div>
+
 
 
     <div class="profile-picture">
@@ -285,25 +256,7 @@
 
 
 
-{% if current_user.tuxts_input6 %}
-<div class="profile-picture">
-    <p style="color:white;font-size:22px;">{{ current_user.tuxts_input6 }}</p>
-{% endif %}
-{% for user in users %}
-{% if user.pit_3 %}
-{% if user.pit_3.endswith('.mov') or user.pit_3.endswith('.mp4') or user.pit_3.endswith('.mp3') %}
-<video controls>
-    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}#t=0.1" type="video/mp4"preload="metadata">
-</video>
-  {% else %}
-<img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_3 }}" width="128">
- {% endif %}
- {% endif %}
-{% endfor %}
-{% if current_user.tuxts_input7 %}
-<p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:250px;">{{ current_user.tuxts_input7 }}</p>
-</div>
-    {% endif %}
+
 
 
     
