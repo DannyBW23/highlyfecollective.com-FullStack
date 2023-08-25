@@ -387,7 +387,7 @@
         {% for user in users %}
         {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
-        <video controls>
+        <video controls poster="user.pics">
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics }}" type="video/mp4">
         </video>
           {% else %}
