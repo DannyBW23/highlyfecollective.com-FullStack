@@ -385,7 +385,7 @@
         <p style="color:white;font-size:22px;">{{ current_user.text_input}}</p>
         {% endif %}
         {% for user in users %}
-        {% if user.picsx %}
+        {% if user.pics %}
         {% if user.pics.endswith('.mov') or user.pics.endswith('.mp4') or user.pics.endswith('.mp3') %}
         <video controls poster="https://profilepic23.s3.amazonaws.com/{{ user.picsx }}"preload="metadata">
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.picsx }}#t=0.1"type="video/mp4">
