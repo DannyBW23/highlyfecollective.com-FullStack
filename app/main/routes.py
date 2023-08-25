@@ -12,6 +12,7 @@ import boto3
 from botocore.exceptions import ClientError
 from sqlalchemy import func
 from app.auth.forms import LoginForm
+import os
 @bp.before_app_request
 def before_request():
 	if not request.is_secure:
@@ -178,6 +179,8 @@ def studio():
 						print(f"Error uploading file to AWS S3: {e}")
 						flash("Error!  Looks like there was a problem...try again!")
 						return render_template("studio.html", name_to_update=name_to_update, id=id, form=form)
+
+				
 				if 'pic_1' in request.files:
 					file = request.files['pic_1']
 					pic_filename = secure_filename(file.filename)

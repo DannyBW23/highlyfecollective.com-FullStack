@@ -21,7 +21,7 @@
         border-collapse: collapse;
         display: inline-block;
         font-family: SF Pro Display;
-        border-radius: 5px;
+        border-radius: 9px;
 background-color: #b1a7a8ee;
 
     }
@@ -30,13 +30,21 @@ background-color: #b1a7a8ee;
     .profile-picture img {
         width: 100%;
         height: 100%;
-        height: 150px;
+        height: 140px;
         object-fit: cover;
         border-collapse: separate;
         border-spacing: 0 15px;
-        border-radius: 10px;
+        border-radius: 9px;
     }
-
+    .profile-picture video {
+        width: 100%;
+        height: 100%;
+        height: 135px;
+        object-fit: cover;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        border-radius: 9px;
+    }
 </style>
     <h1 style= "font-size:60px;font-family: SF Pro Display;">Book Another Session, {{ current_user.username }}!</h1>
 
@@ -51,7 +59,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input }}</p>
+        {% if name_to_update.pic.endswith('.mov') or name_to_update.pic.endswith('.mp4') or name_to_update.pic.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic }}
             {{ form.csrf_token }}
@@ -73,7 +87,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input2 }}</p>
+        {% if name_to_update.pic_1.endswith('.mov') or name_to_update.pic_1.endswith('.mp4') or name_to_update.pic_1.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_1 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_1 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_1 }}
             {{ form.csrf_token }}
@@ -94,7 +114,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input4 }}</p>
+        {% if name_to_update.pic_2.endswith('.mov') or name_to_update.pic_2.endswith('.mp4') or name_to_update.pic_2.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_2 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_2 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_2 }}
             {{ form.csrf_token }}
@@ -116,7 +142,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input6 }}</p>
+        {% if name_to_update.pic_3.endswith('.mov') or name_to_update.pic_3.endswith('.mp4') or name_to_update.pic_3.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_3 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_3 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_3 }}
             {{ form.csrf_token }}
@@ -138,7 +170,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input8 }}</p>
+        {% if name_to_update.pic_4.endswith('.mov') or name_to_update.pic_4.endswith('.mp4') or name_to_update.pic_4.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_4 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_4 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_4 }}
             {{ form.csrf_token }}
@@ -160,7 +198,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input10 }}</p>
+        {% if name_to_update.pic_5.endswith('.mov') or name_to_update.pic_5.endswith('.mp4') or name_to_update.pic_5.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_5 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_5 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_5 }}
             {{ form.csrf_token }}
@@ -183,7 +227,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input12 }}</p>
+        {% if name_to_update.pic_6.endswith('.mov') or name_to_update.pic_6.endswith('.mp4') or name_to_update.pic_6.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_6 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_6 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_6 }}
             {{ form.csrf_token }}
@@ -206,7 +256,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input14 }}</p>
+        {% if name_to_update.pic_7.endswith('.mov') or name_to_update.pic_7.endswith('.mp4') or name_to_update.pic_7.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_7 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_7 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_7 }}
             {{ form.csrf_token }}
@@ -227,7 +283,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input16 }}</p>
+        {% if name_to_update.pic_8.endswith('.mov') or name_to_update.pic_8.endswith('.mp4') or name_to_update.pic_8.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_8 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_8 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_8 }}
             {{ form.csrf_token }}
@@ -248,7 +310,13 @@ background-color: #b1a7a8ee;
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.texts_input18 }}</p>
+        {% if name_to_update.pic_9.endswith('.mov') or name_to_update.pic_9.endswith('.mp4') or name_to_update.pic_9.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pi_9 }}" type="video/mp4">
+        </video>
+          {% else %}
         <img src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pic_9 }}" width="128">
+         {% endif %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pic_9}}
             {{ form.csrf_token }}
@@ -274,9 +342,15 @@ background-color: #b1a7a8ee;
             <p style="color:white;font-size:22px;">{{ current_user.texts_input }}</p>
         {% endif %}
         {% for user in users %}
-            {% if user.pic %}
-                <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic}}" width="128">
-            {% endif %}
+        {% if user.pic %}
+        {% if user.pic.endswith('.mov') or user.pic.endswith('.mp4') or user.pic.endswith('.mp3') %}
+        <video controls>
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic }}" type="video/mp4">
+        </video>
+          {% else %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic }}" width="128">
+         {% endif %}
+         {% endif %}
         {% endfor %}
         {% if current_user.texts_input1 %}
         <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input1 }}</p>
@@ -290,9 +364,15 @@ background-color: #b1a7a8ee;
     <p style="color:white;font-size:22px;">{{ current_user.texts_input2 }}</p>
 {% endif %}
 {% for user in users %}
-    {% if user.pic_1 %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_1 }}" width="128">
-    {% endif %}
+{% if user.pic_1 %}
+{% if user.pic_1.endswith('.mov') or user.pic_1.endswith('.mp4') or user.pic_1.endswith('.mp3') %}
+<video controls>
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_1 }}" type="video/mp4">
+</video>
+  {% else %}
+<img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_1 }}" width="128">
+ {% endif %}
+ {% endif %}
 {% endfor %}
 {% if current_user.texts_input3 %}
 <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input3 }}</p>
@@ -306,9 +386,15 @@ background-color: #b1a7a8ee;
     <p style="color:white;font-size:22px;">{{ current_user.texts_input4 }}</p>
 {% endif %}
 {% for user in users %}
-    {% if user.pic_2 %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_2 }}" width="128">
-    {% endif %}
+{% if user.pic_2 %}
+{% if user.pic_2.endswith('.mov') or user.pic_2.endswith('.mp4') or user.pic_2.endswith('.mp3') %}
+<video controls>
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_2 }}" type="video/mp4">
+</video>
+  {% else %}
+<img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_2 }}" width="128">
+ {% endif %}
+ {% endif %}
 {% endfor %}
 {% if current_user.texts_input5 %}
 <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input5 }}</p>
@@ -322,9 +408,15 @@ background-color: #b1a7a8ee;
     <p style="color:white;font-size:22px;">{{ current_user.texts_input6 }}</p>
 {% endif %}
 {% for user in users %}
-    {% if user.pic_3 %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_3 }}" width="128">
-    {% endif %}
+{% if user.pic_3 %}
+{% if user.pic_3.endswith('.mov') or user.pic_3.endswith('.mp4') or user.pic_3.endswith('.mp3') %}
+<video controls>
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_3 }}" type="video/mp4">
+</video>
+  {% else %}
+<img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_3 }}" width="128">
+ {% endif %}
+ {% endif %}
 {% endfor %}
 {% if current_user.texts_input7 %}
 <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input7 }}</p>
@@ -338,9 +430,15 @@ background-color: #b1a7a8ee;
     <p style="color:white;font-size:22px;">{{ current_user.texts_input8 }}</p>
 {% endif %}
 {% for user in users %}
-    {% if user.pic_4 %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_4 }}" width="128">
-    {% endif %}
+{% if user.pic_4 %}
+{% if user.pic_4.endswith('.mov') or user.pic_4.endswith('.mp4') or user.pic_4.endswith('.mp3') %}
+<video controls>
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_4 }}" type="video/mp4">
+</video>
+  {% else %}
+<img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_4 }}" width="128">
+ {% endif %}
+ {% endif %}
 {% endfor %}
 {% if current_user.texts_input9 %}
 <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input9 }}</p>
@@ -354,9 +452,15 @@ background-color: #b1a7a8ee;
     <p style="color:white;font-size:22px;">{{ current_user.texts_input10 }}</p>
 {% endif %}
 {% for user in users %}
-    {% if user.pic_5 %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_5 }}" width="128">
-    {% endif %}
+{% if user.pic_5 %}
+{% if user.pic_5.endswith('.mov') or user.pic_5.endswith('.mp4') or user.pic_5.endswith('.mp3') %}
+<video controls>
+    <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_5 }}" type="video/mp4">
+</video>
+  {% else %}
+<img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_5 }}" width="128">
+ {% endif %}
+ {% endif %}
 {% endfor %}
 {% if current_user.texts_input11 %}
 <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input11 }}</p>
@@ -370,9 +474,15 @@ background-color: #b1a7a8ee;
         <p style="color:white;font-size:22px;">{{ current_user.texts_input12 }}</p>
     {% endif %}
     {% for user in users %}
-        {% if user.pic_6 %}
-            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_6 }}" width="128">
-        {% endif %}
+    {% if user.pic_6 %}
+    {% if user.pic_6.endswith('.mov') or user.pic_6.endswith('.mp4') or user.pic_6.endswith('.mp3') %}
+    <video controls>
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_6 }}" type="video/mp4">
+    </video>
+      {% else %}
+    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_6 }}" width="128">
+     {% endif %}
+     {% endif %}
     {% endfor %}
     {% if current_user.texts_input13 %}
     <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input13 }}</p>
@@ -386,9 +496,15 @@ background-color: #b1a7a8ee;
         <p style="color:white;font-size:22px;">{{ current_user.texts_input14 }}</p>
     {% endif %}
     {% for user in users %}
-        {% if user.pic_7 %}
-            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_7 }}" width="128">
-        {% endif %}
+    {% if user.pic_7 %}
+    {% if user.pic_7.endswith('.mov') or user.pic_7.endswith('.mp4') or user.pic_7.endswith('.mp3') %}
+    <video controls>
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_7 }}" type="video/mp4">
+    </video>
+      {% else %}
+    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_7 }}" width="128">
+     {% endif %}
+     {% endif %}
     {% endfor %}
     {% if current_user.texts_input15 %}
     <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input15 }}</p>
@@ -402,9 +518,15 @@ background-color: #b1a7a8ee;
         <p style="color:white;font-size:22px;">{{ current_user.texts_input16 }}</p>
     {% endif %}
     {% for user in users %}
-        {% if user.pic_8 %}
-            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_8 }}" width="128">
-        {% endif %}
+    {% if user.pic_8 %}
+    {% if user.pic_8.endswith('.mov') or user.pic_8.endswith('.mp4') or user.pic_8.endswith('.mp3') %}
+    <video controls>
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_8 }}" type="video/mp4">
+    </video>
+      {% else %}
+    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_8 }}" width="128">
+     {% endif %}
+     {% endif %}
     {% endfor %}
     {% if current_user.texts_input17 %}
     <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input17 }}</p>
@@ -418,9 +540,15 @@ background-color: #b1a7a8ee;
         <p style="color:white;font-size:22px;">{{ current_user.texts_input18 }}</p>
     {% endif %}
     {% for user in users %}
-        {% if user.pics_9 %}
-            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_9 }}" width="128">
-        {% endif %}
+    {% if user.pic_9 %}
+    {% if user.pic_9.endswith('.mov') or user.pic_9.endswith('.mp4') or user.pic_9.endswith('.mp3') %}
+    <video controls>
+        <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic_9 }}" type="video/mp4">
+    </video>
+      {% else %}
+    <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic_9 }}" width="128">
+     {% endif %}
+     {% endif %}
     {% endfor %}
     {% if current_user.texts_input19 %}
     <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input19 }}</p>

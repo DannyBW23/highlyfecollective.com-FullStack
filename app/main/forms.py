@@ -1,6 +1,6 @@
 from flask import request
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField
+from flask_wtf.file import FileField,FileAllowed
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Length
 from app.models import User
@@ -23,40 +23,40 @@ class EditProfileForm(FlaskForm):
 			if user is not None:
 				raise ValidationError(('Please use a different username.'))
 class PicForm(FlaskForm):
-    pic=FileField('pic')
-    pic_1=FileField('pic_1')
-    pic_2=FileField('pic_2')
-    pic_3=FileField('pic_3')
-    pic_4=FileField('pic_4')
-    pic_5=FileField('pic_5')
-    pic_6=FileField('pic_6')
-    pic_7=FileField('pic_7')
-    pic_8=FileField('pic_8')
-    pic_9=FileField('pic_9')
+    pic=FileField('pic' ,validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_1=FileField('pic_1',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_2=FileField('pic_2',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_3=FileField('pic_3',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_4=FileField('pic_4',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_5=FileField('pic_5',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_6=FileField('pic_6',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_7=FileField('pic_7',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_8=FileField('pic_8',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pic_9=FileField('pic_9',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     submit = SubmitField('Submit')
 class PitForm(FlaskForm):
-    pit=FileField('pit')
-    pit_1=FileField('pit_1')
-    pit_2=FileField('pit_2')
-    pit_3=FileField('pit_3')
-    pit_4=FileField('pit_4')
-    pit_5=FileField('pit_5')
-    pit_6=FileField('pit_6')
-    pit_7=FileField('pit_7')
-    pit_8=FileField('pit_8')
-    pit_9=FileField('pit_9')
+    pit=FileField('pit',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_1=FileField('pit_1',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_2=FileField('pit_2',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_3=FileField('pit_3',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_4=FileField('pit_4',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_5=FileField('pit_5',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_6=FileField('pit_6',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_7=FileField('pit_7',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_8=FileField('pit_8',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pit_9=FileField('pit_9',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     submit = SubmitField('Submit')
 class PicsForm(FlaskForm):
-    pics=FileField('pics')
-    pics_1=FileField('pics_1')
-    pics_2=FileField('pics_2')
-    pics_3=FileField('pics_3')
-    pics_4=FileField('pics_4')
-    pics_5=FileField('pics_5')
-    pics_6=FileField('pics_6')
-    pics_7=FileField('pics_7')
-    pics_8=FileField('pics_8')
-    pics_9=FileField('pics_9')
+    pics=FileField('pics',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_1=FileField('pics_1',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_2=FileField('pics_2',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_3=FileField('pics_3',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_4=FileField('pics_4',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_5=FileField('pics_5',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_6=FileField('pics_6',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_7=FileField('pics_7',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_8=FileField('pics_8',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pics_9=FileField('pics_9',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     submit = SubmitField('Submit')
 
 class NewsForm(FlaskForm):
