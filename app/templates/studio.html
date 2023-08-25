@@ -52,36 +52,7 @@ background-color: #b1a7a8ee;
 {% if current_user.id == 1 or current_user.id == 4 %}
 
 
-    <div class="profile-picture">
-        <form method="post">
-            {{ forms.texts_input() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color: white; font-size: 22px;">{{ current_user.texts_input }}</p>
-        {% for user in users %}
-        {% if user.picx %}
-        {% if user.picx.endswith('.mov') or user.picx.endswith('.mp4') or user.picx.endswith('.mp3') %}
-        <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.picx }}#t=0.1" type="video/mp4"preload="metadata">
-        </video>
-          {% else %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.picx }}" width="128">
-         {% endif %}
-         {% endif %}
-        {% endfor %}
-        <form method="post" enctype="multipart/form-data">
-            {{ form.picx }}
-            {{ form.csrf_token }}
-            {{ form.submit }}
-        </form>
-        <form method="post">
-            {{ forms.texts_input1() }}
-            {{ forms.csrf_token }}
-            {{ forms.submit }}
-        </form>
-        <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input1 }}</p>
-    </div>
+
 
     
     <div class="profile-picture">
@@ -377,25 +348,7 @@ background-color: #b1a7a8ee;
 {% if current_user.id != 1 %}
 
        
-        {% if current_user.texts_input %}
-        <div class="profile-picture">
-            <p style="color:white;font-size:22px;">{{ current_user.texts_input }}</p>
-        {% endif %}
-        {% for user in users %}
-        {% if user.pic %}
-        {% if user.pic.endswith('.mov') or user.pic.endswith('.mp4') or user.pic.endswith('.mp3') %}
-        <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pic }}#t=0.1" type="video/mp4"preload="metadata">
-        </video>
-          {% else %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pic }}" width="128">
-         {% endif %}
-         {% endif %}
-        {% endfor %}
-        {% if current_user.texts_input1 %}
-        <p style="color:white;font-size:12px;border-radius: 5px;background-color: #b1a7a8ee;word-wrap: break-word;border-collapse:collapse;display: inline-block; width:150px;">{{ current_user.texts_input1 }}</p>
-     </div>
-            {% endif %}
+
 
 
  
