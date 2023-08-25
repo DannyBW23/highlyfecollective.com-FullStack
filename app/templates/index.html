@@ -57,18 +57,18 @@
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input }}</p>
         {% for user in users %}
-        {% if user.pit %}
-        {% if user.pit.endswith('.mov') or user.pit.endswith('.mp4') or user.pit.endswith('.mp3') %}
+        {% if user.pitx %}
+        {% if user.pitx.endswith('.mov') or user.pitx.endswith('.mp4') or user.pitx.endswith('.mp3') %}
         <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}#t=0.1" type="video/mp4"preload="metadata">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pitx }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
           {% else %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" width="128">
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pitx }}" width="128">
          {% endif %}
          {% endif %}
         {% endfor %}
         <form method="post" enctype="multipart/form-data">
-            {{ form.pit }}
+            {{ form.pitx }}
             {{ form.csrf_token }}
             {{ form.submit }}
         </form>
@@ -378,13 +378,13 @@
             <p style="color:white;font-size:22px;">{{ current_user.tuxts_input }}</p>
         {% endif %}
         {% for user in users %}
-        {% if user.pit %}
-        {% if user.pit.endswith('.mov') or user.pit.endswith('.mp4') or user.pit.endswith('.mp3') %}
+        {% if user.pitx %}
+        {% if user.pitx.endswith('.mov') or user.pitx.endswith('.mp4') or user.pitx.endswith('.mp3') %}
         <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}#t=0.1" type="video/mp4"preload="metadata">
+            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pitx }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
           {% else %}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit }}" width="128">
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pitx }}" width="128">
          {% endif %}
          {% endif %}
         {% endfor %}

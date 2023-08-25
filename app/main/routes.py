@@ -165,14 +165,14 @@ def studio():
 		if not texts_input and not texts_input1 and not texts_input2 and not texts_input3 and not texts_input4 and not texts_input5 and not texts_input6 and not texts_input7 and not texts_input8 and not texts_input9 and not texts_input10 and not texts_input11 and not texts_input12 and not texts_input13 and not texts_input14 and not texts_input15 and not texts_input16 and not texts_input17 and not texts_input18 and not texts_input19:
 			if request.method == 'POST':
 				if 'picx' in request.files:
-					file = request.files['pic']
+					file = request.files['picx']
 					pic_filename = secure_filename(file.filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
 					s3_client = boto3.client('s3', region_name='us-east-1')
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
-						name_to_update.pic = pic_name 
+						name_to_update.picx = pic_name 
 						db.session.commit()
 						return redirect(url_for('main.studio', form=form))
 					except ClientError as e:
@@ -464,15 +464,15 @@ def index():
 	if form.validate_on_submit() :
 		if not tuxts_input and not tuxts_input1 and not tuxts_input2 and not tuxts_input3 and not tuxts_input4 and not tuxts_input5 and not tuxts_input6 and not tuxts_input7 and not tuxts_input8 and not tuxts_input9 and not tuxts_input10 and not tuxts_input11 and not tuxts_input12 and not tuxts_input13 and not tuxts_input14 and not tuxts_input15 and not tuxts_input16 and not tuxts_input17 and not tuxts_input18 and not tuxts_input19:
 			if request.method == 'POST':
-				if 'pit' in request.files:
-					file = request.files['pit']
+				if 'pitx' in request.files:
+					file = request.files['pitx']
 					pic_filename = secure_filename(file.filename)
 					pic_name = str(uuid.uuid1()) + "_" + pic_filename
 					s3_client = boto3.client('s3', region_name='us-east-1')
 					try:
 						s3_client = boto3.client('s3')
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
-						name_to_update.pit = pic_name 
+						name_to_update.pitx = pic_name 
 						db.session.commit()
 						return redirect(url_for('main.index', form=form))
 					except ClientError as e:

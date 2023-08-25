@@ -35,7 +35,7 @@ class PicForm(FlaskForm):
     pic_9=FileField('pic_9',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     submit = SubmitField('Submit')
 class PitForm(FlaskForm):
-    pit=FileField('pit',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
+    pitx=FileField('pit',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pit_1=FileField('pit_1',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pit_2=FileField('pit_2',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])
     pit_3=FileField('pit_3',validators=[FileAllowed(['jpg', 'png', 'jpeg', 'gif', 'mov','mp4','mp3'])])

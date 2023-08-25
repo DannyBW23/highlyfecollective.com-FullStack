@@ -82,7 +82,7 @@ class User(UserMixin, db.Model):
 	pic_7=db.Column(db.String(255), nullable=True)
 	pic_8=db.Column(db.String(255), nullable=True)
 	pic_9=db.Column(db.String(255), nullable=True)
-	pit=db.Column(db.String(255), nullable=True)
+	pitx=db.Column(db.String(255), nullable=True)
 	pit_1=db.Column(db.String(255), nullable=True)
 	pit_2=db.Column(db.String(255), nullable=True)
 	pit_3=db.Column(db.String(255), nullable=True)
