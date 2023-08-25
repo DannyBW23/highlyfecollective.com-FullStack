@@ -94,7 +94,8 @@
         <video controls>
             <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}#t=0.1" type="video/mp4"preload="metadata">
         </video>
-
+        {% else %}
+        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
          {% endif %}
          {% endif %}
         {% endfor %}
