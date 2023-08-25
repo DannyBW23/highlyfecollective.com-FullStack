@@ -13,22 +13,22 @@ from botocore.exceptions import ClientError
 from sqlalchemy import func
 from app.auth.forms import LoginForm
 import os
-# @bp.before_app_request
-# def before_request():
-# 	if not request.is_secure:
-# 		if not current_user.is_authenticated:
-# 			url = request.url.replace("http://", "https://", 1)
-# 			return redirect(url, code=301)
-# 	if not request.is_secure:
-# 		if current_user.is_authenticated:
-# 			url = request.url.replace("http://", "https://", 1)
-# 			current_user.last_seen = datetime.utcnow()
-# 			db.session.commit()
-# 			return redirect(url, code=301)
-# 	if request.is_secure:
-# 		if current_user.is_authenticated:
-# 			current_user.last_seen = datetime.utcnow()
-# 			db.session.commit()	
+@bp.before_app_request
+def before_request():
+	if not request.is_secure:
+		if not current_user.is_authenticated:
+			url = request.url.replace("http://", "https://", 1)
+			return redirect(url, code=301)
+	if not request.is_secure:
+		if current_user.is_authenticated:
+			url = request.url.replace("http://", "https://", 1)
+			current_user.last_seen = datetime.utcnow()
+			db.session.commit()
+			return redirect(url, code=301)
+	if request.is_secure:
+		if current_user.is_authenticated:
+			current_user.last_seen = datetime.utcnow()
+			db.session.commit()	
 @bp.route('/studio', methods=['GET','POST'])
 @login_required
 def studio():
