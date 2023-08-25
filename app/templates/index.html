@@ -91,14 +91,14 @@
         {% for user in users %}
         {% if user.pit_1 %}
         {% if user.pit_1.endswith('.mov') or user.pit_1.endswith('.mp4') or user.pit_1.endswith('.mp3') %}
-        <video controls>
-            <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}#t=0.1" type="video/mp4"preload="metadata">
-            {% endif %}
-        </video>
-        {% if user.pit_1.endswith('.HEIC') or user.pit_1.endswith('.jpg') or user.pit_1.endswith('.jpeg')%}
-        <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
-         {% endif %}
-         {% endif %}
+            <video controls>
+                <source src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}?timestamp={{ current_timestamp }}" type="video/mp4" preload="metadata">
+
+            </video>
+        {% elif user.pit_1.endswith('.HEIC') or user.pit_1.endswith('.jpg') or user.pit_1.endswith('.jpeg') %}
+            <img src="https://profilepic23.s3.amazonaws.com/{{ user.pit_1 }}" width="128">
+        {% endif %}
+    {% endif %}
         {% endfor %}
         <form method="post" enctype="multipart/form-data">
             {{ form.pit_1 }}
