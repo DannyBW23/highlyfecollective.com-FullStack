@@ -286,7 +286,7 @@
                     </form>
                     <p style="color: white; font-size: 22px;">{{ current_user.text_input14 }}</p>
                     {% for user in users %}
-                    {% if user.pics-7 %}
+                    {% if user.pics_7 %}
                     {% if user.pics_7.endswith('.mov') or user.pics_7.endswith('.mp4') or user.pics_7.endswith('.mp3') %}
                     <video controls>
                         <source src="https://profilepic23.s3.amazonaws.com/{{ user.pics_7 }}" type="video/mp4">
