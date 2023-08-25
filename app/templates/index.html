@@ -56,7 +56,8 @@
             {{ forms.submit }}
         </form>
         <p style="color: white; font-size: 22px;">{{ current_user.tuxts_input }}</p>
-        {% if name_to_update.pit.endswith('.mov') or name_to_update.pit.endswith('.mp4') or name_to_update.pit.endswith('.mp3') %}
+        {% if name_to_update and (name_to_update.pit.endswith('.mov') or name_to_update.pit.endswith('.mp4') or name_to_update.pit.endswith('.mp3')) %}
+
         <video controls>
             <source src="https://profilepic23.s3.amazonaws.com/{{ name_to_update.pit }}" type="video/mp4">
         </video>
