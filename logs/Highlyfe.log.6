@@ -1,17 +1,4 @@
-2023-08-25 07:47:53,118 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:48:29,023 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:51:06,346 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:51:21,637 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:52:02,118 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:52:26,788 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:52:48,413 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:53:03,570 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:53:42,867 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:53:56,222 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:54:58,533 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 07:57:03,978 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:05:29,900 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:05:31,117 ERROR: Exception on /studio [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+2023-08-25 08:16:44,821 ERROR: Exception on /studio [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -47,10 +34,12 @@ Traceback (most recent call last):
     {% block content -%}
   File "/Users/danielweir/highlyfe3/app/templates/base.html", line 67, in block 'content'
     {% block app_content %}{% endblock %}
-  File "/Users/danielweir/highlyfe3/app/templates/studio.html", line 54, in block 'app_content'
-    {% if name_to_update.pic.endswith('.mov','mp4','mp3') %}
-TypeError: slice indices must be integers or None or have an __index__ method
-2023-08-25 08:05:32,115 ERROR: Exception on /studio [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
+  File "/Users/danielweir/highlyfe3/app/templates/studio.html", line 251, in block 'app_content'
+    {% if name_to_update.pic_7.endswith('.mov') or name_to_update_7.pic.endswith('.mp4') or name_to_update.pic_7.endswith('.mp3') %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'name_to_update_7' is undefined
+2023-08-25 08:16:45,675 ERROR: Exception on /studio [GET] [in /Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py:1414]
 Traceback (most recent call last):
   File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/flask/app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,13 +75,11 @@ Traceback (most recent call last):
     {% block content -%}
   File "/Users/danielweir/highlyfe3/app/templates/base.html", line 67, in block 'content'
     {% block app_content %}{% endblock %}
-  File "/Users/danielweir/highlyfe3/app/templates/studio.html", line 54, in block 'app_content'
-    {% if name_to_update.pic.endswith('.mov','mp4','mp3') %}
-TypeError: slice indices must be integers or None or have an __index__ method
-2023-08-25 08:10:04,348 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:10:47,254 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:12:21,648 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:12:48,070 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:13:39,541 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:15:58,823 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
-2023-08-25 08:16:43,412 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+  File "/Users/danielweir/highlyfe3/app/templates/studio.html", line 251, in block 'app_content'
+    {% if name_to_update.pic_7.endswith('.mov') or name_to_update_7.pic.endswith('.mp4') or name_to_update.pic_7.endswith('.mp3') %}
+  File "/Users/danielweir/highlyfe3/venv/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'name_to_update_7' is undefined
+2023-08-25 08:17:05,914 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-25 08:18:21,707 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2023-08-25 08:19:01,595 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
