@@ -13,22 +13,22 @@ from botocore.exceptions import ClientError
 from sqlalchemy import func
 from app.auth.forms import LoginForm
 import os
-# @bp.before_app_request
-# def before_request():
-# 	if not request.is_secure:
-# 		if not current_user.is_authenticated:
-# 			url = request.url.replace("http://", "https://", 1)
-# 			return redirect(url, code=301)
-# 	if not request.is_secure:
-# 		if current_user.is_authenticated:
-# 			url = request.url.replace("http://", "https://", 1)
-# 			current_user.last_seen = datetime.utcnow()
-# 			db.session.commit()
-# 			return redirect(url, code=301)
-# 	if request.is_secure:
-# 		if current_user.is_authenticated:
-# 			current_user.last_seen = datetime.utcnow()
-# 			db.session.commit()	
+@bp.before_app_request
+def before_request():
+	if not request.is_secure:
+		if not current_user.is_authenticated:
+			url = request.url.replace("http://", "https://", 1)
+			return redirect(url, code=301)
+	if not request.is_secure:
+		if current_user.is_authenticated:
+			url = request.url.replace("http://", "https://", 1)
+			current_user.last_seen = datetime.utcnow()
+			db.session.commit()
+			return redirect(url, code=301)
+	if request.is_secure:
+		if current_user.is_authenticated:
+			current_user.last_seen = datetime.utcnow()
+			db.session.commit()	
 			
 @bp.route('/studio', methods=['GET','POST'])
 @login_required
@@ -475,7 +475,7 @@ def index():
 						s3_client.upload_fileobj(file, 'profilepic23', pic_name)
 						name_to_update.pitx = pic_name 
 						db.session.commit()
-						except ClientError as e:
+					except ClientError as e:
 						print(f"Error uploading file to AWS S3: {e}")
 						flash("Error!  Looks like there was a problem...try again!")
 						return render_template("index.html", name_to_update=name_to_update, id=id, form=form)
