@@ -1008,6 +1008,7 @@ def edit_profile(username):
 			pic_filename = secure_filename(file.filename)
 			pic_name = str(uuid.uuid1()) + "_" + pic_filename
 			s3_client = boto3.client('s3', region_name='us-east-1')
+
 			try:
 				s3_client = boto3.client('s3')
 				s3_client.upload_fileobj(file, 'profilepic23', pic_name)

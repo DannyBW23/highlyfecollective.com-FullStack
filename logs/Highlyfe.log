@@ -68,3 +68,8 @@ Traceback (most recent call last):
     width: user.imageSize,
 jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got ':'
 2023-12-08 10:50:27,300 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2024-02-26 22:55:49,625 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2024-02-26 22:57:56,699 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2024-02-26 22:58:33,162 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2024-08-14 13:10:34,721 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
+2024-08-14 13:11:03,502 INFO: Highlyfe startup [in /Users/danielweir/highlyfe3/app/__init__.py:59]
